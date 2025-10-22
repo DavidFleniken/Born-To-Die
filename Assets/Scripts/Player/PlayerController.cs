@@ -18,10 +18,15 @@ public class PlayerController : MonoBehaviour, IInteractor
     //There should only be one "player"
     private static PlayerController singleton;
 
+    // Basic player stuff
     [SerializeField] float speed = 5f;
-    Rigidbody2D rb;
+    static Rigidbody2D rb;
     Animator anim;
-    Vector2 velo;
+    static Vector2 velo;
+
+    // timer stuff
+    static float timerEnd = 0f;
+    static bool isPaused = false;
 
     private void Start()
     {
@@ -37,12 +42,37 @@ public class PlayerController : MonoBehaviour, IInteractor
         anim = GetComponent<Animator>();
     }
 
+    public static void pauseInput(float secs)
+    {
+        isPaused = true;
+        timerEnd = Time.time + secs;
+        rb.linearVelocity = Vector2.zero;
+        
+    }
+
     private void Update()
     {
+        //pause input logic
+        if (isPaused)
+        {
+            if (Time.time >= timerEnd)
+            {
+                isPaused = false;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         #region Player Movement
      
         velo.x = Input.GetAxisRaw("Horizontal");
-        velo.y = Input.GetAxisRaw("Vertical");
+
+        // no diagonals, give priority to horizontal movement
+        if (velo.x == 0) velo.y = Input.GetAxisRaw("Vertical");
+        else velo.y = 0;
+        
         velo.Normalize();
         velo *= speed;
 
