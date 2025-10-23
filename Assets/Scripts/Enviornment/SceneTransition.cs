@@ -40,6 +40,7 @@ public class SceneTransition : MonoBehaviour
     {
         player.transform.position = spawnPos;
         CameraController.SetBackground(newBackground, spawnPos);
+        PerspectiveScaler.setBg(newBackground);
 
         switch (spawnDir)
         {
