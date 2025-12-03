@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5aa4c80ca0a3445bf4be3ce1adbf9a, type: 3}
+  m_Name: TestDEvents
+  m_EditorClassIdentifier: Assembly-CSharp::TestDEvents
+  generate: 0
+  testChatBoxImage: {fileID: 21300000, guid: ff9c4e1ee4314014bb28c875ed5995a0, type: 3}
+  testPortrait: {fileID: 21300000, guid: 7d09dc2a7f57a4b43bc43a3e9b0ec3a1, type: 3}
+  testPortrait2: {fileID: 21300000, guid: cdaaa2d5831bf7b4eaa82e690bae8360, type: 3}

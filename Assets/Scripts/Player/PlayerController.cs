@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour, IInteractor
     Animator anim;
     static Vector2 velo;
 
+    public enum movementMode { Normal, Stairs }
+    static movementMode curMode = movementMode.Normal;
+
     // timer stuff
     static float timerEnd = 0f;
     static bool isPaused = false;
@@ -50,6 +53,11 @@ public class PlayerController : MonoBehaviour, IInteractor
         
     }
 
+    public static void setMode(movementMode newMode)
+    {
+        curMode = newMode;
+    }
+
     private void Update()
     {
         //pause input logic
@@ -66,23 +74,55 @@ public class PlayerController : MonoBehaviour, IInteractor
         }
 
         #region Player Movement
-     
-        velo.x = Input.GetAxisRaw("Horizontal");
 
-        // no diagonals, give priority to horizontal movement
-        if (velo.x == 0) velo.y = Input.GetAxisRaw("Vertical");
-        else velo.y = 0;
-        
-        velo.Normalize();
-        velo *= speed;
+        if (curMode == movementMode.Normal)
+        {
+            velo.x = Input.GetAxisRaw("Horizontal");
 
-        rb.linearVelocity = velo;
+            // no diagonals, give priority to horizontal movement
+            if (velo.x == 0) velo.y = Input.GetAxisRaw("Vertical");
+            else velo.y = 0;
 
-        #endregion
+            velo.Normalize();
+            velo *= speed;
+
+            rb.linearVelocity = velo;
+        }
+        else if (curMode == movementMode.Stairs)
+        {
+            // move diagonally when on stairs
+            // up+right or down+left
+            float inputX = Input.GetAxisRaw("Horizontal");
+            float inputY = Input.GetAxisRaw("Vertical");
+            if (Mathf.Abs(inputX) > Mathf.Abs(inputY))
+            {
+                velo.x = inputX;
+            }
+            else
+            {
+                velo.x = inputY;
+            }
+
+                velo.y = inputY;
+            velo.y = velo.x;
 
 
-        // anim data
-        bool isMoving = false;
+            velo.Normalize();
+            velo *= speed;
+
+            rb.linearVelocity = velo;
+
+            // for animation
+            velo.y = 0;
+        }
+
+
+
+            #endregion
+
+
+            // anim data
+            bool isMoving = false;
         if (velo.magnitude > 0.01f)
         {
             isMoving = true;
@@ -106,5 +146,24 @@ public class PlayerController : MonoBehaviour, IInteractor
     public void interact()
     {
         // do stuff here for dialouge or interacting or something
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Stairs"))
+        {
+            if (curMode != movementMode.Stairs)
+            {
+                curMode = movementMode.Stairs;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Stairs"))
+        {
+            curMode = movementMode.Normal;
+        }
     }
 }
