@@ -1,0 +1,44 @@
+{
+  "events": [
+    {
+      "name": "Test Event",
+      "lines": [
+        {
+          "text": "I LOVE CODING I LOVE CODING I LOVE CODING I LOV",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait2",
+          "choices": []
+        },
+        {
+          "text": "...",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "sorry about that",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Secondary Event",
+      "lines": [
+        {
+          "text": "test text",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "test text 2",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        }
+      ]
+    }
+  ]
+}
