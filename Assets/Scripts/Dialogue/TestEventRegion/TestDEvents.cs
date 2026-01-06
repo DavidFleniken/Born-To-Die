@@ -4,10 +4,10 @@ using UnityEngine.UI;
 using System;
 
 
-public interface EventRegion
+/*public interface EventRegion
 {
     public Dictionary<string, DialogueManager.dialogueLine[]> getEvents();
-}
+}*/
 
 [CreateAssetMenu(fileName = "TestDEvents", menuName = "Scriptable Objects/TestDEvents")]
 public class TestDEvents : ScriptableObject, EventRegion

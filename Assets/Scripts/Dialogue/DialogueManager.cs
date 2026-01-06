@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
     static int jumpTo = 0;
     static bool inChoice = false;
 
-    private void Start()
+    private void Awake()
     {
         if (singleton == null)
         {
@@ -67,6 +67,8 @@ public class DialogueManager : MonoBehaviour
 
     public static void runEvent(string eventName)
     {
+        PlayerController.freezeInput();
+
         eventArr = dEvents.getEvents()[eventName];
 
         chatbox.gameObject.SetActive(true);
@@ -100,6 +102,7 @@ public class DialogueManager : MonoBehaviour
             portrait.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
             curLine = 0;
+            PlayerController.unfreezeInput();
             return;
         }
 
@@ -157,10 +160,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (inEvent)
         {
-            // awful way to do this, fix later
-            PlayerController.pauseInput(0.2f);
-
-            //Debug.Log("Here 1");
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !inChoice)
             {
                 runLine(curLine + 1);

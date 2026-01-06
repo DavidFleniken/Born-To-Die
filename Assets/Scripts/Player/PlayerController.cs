@@ -24,12 +24,13 @@ public class PlayerController : MonoBehaviour, IInteractor
     Animator anim;
     static Vector2 velo;
 
-    public enum movementMode { Normal, Stairs }
+    public enum movementMode { Normal, Stairs, Frozen }
     static movementMode curMode = movementMode.Normal;
 
     // timer stuff
     static float timerEnd = 0f;
     static bool isPaused = false;
+    static movementMode lastMode; // mode to return to after unfreezing
 
     private void Start()
     {
@@ -50,7 +51,21 @@ public class PlayerController : MonoBehaviour, IInteractor
         isPaused = true;
         timerEnd = Time.time + secs;
         rb.linearVelocity = Vector2.zero;
-        
+    }
+    public static void freezeInput()
+    {
+        lastMode = curMode;
+        curMode = movementMode.Frozen;
+    }
+
+    public static void unfreezeInput()
+    {
+        if (curMode != movementMode.Frozen)
+        {
+            Debug.LogError("Unfreezing player while player not frozen");
+            return;
+        }
+        curMode = lastMode;
     }
 
     public static void setMode(movementMode newMode)
@@ -58,8 +73,18 @@ public class PlayerController : MonoBehaviour, IInteractor
         curMode = newMode;
     }
 
+    public static movementMode getMode()
+    {
+        return curMode;
+    }
+
     private void Update()
     {
+        if (curMode == movementMode.Frozen)
+        {
+            return;
+        }
+
         //pause input logic
         if (isPaused)
         {
