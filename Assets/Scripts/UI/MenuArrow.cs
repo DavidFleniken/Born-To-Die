@@ -12,6 +12,7 @@ public class MenuArrow : MonoBehaviour
 
     [SerializeField] SpriteRenderer[] menuItems;
     [SerializeField] Sprite[] images;
+    [SerializeField] Settings settings;
 
     int selectedSprite;
     float newYPos;
@@ -23,6 +24,8 @@ public class MenuArrow : MonoBehaviour
 
     private void Update()
     {
+        if (Time.timeScale == 0) return;
+
         Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float yPos = MousePos.y;
         if (yPos > yPos1 - borderOffset) { select(0); newYPos = yPos1;}
@@ -32,6 +35,11 @@ public class MenuArrow : MonoBehaviour
         else { select(4); newYPos = yPos5;}
 
         transform.position = new Vector3(xPos, newYPos);
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            activate(selectedSprite);
+        }
     }
 
     void select(int sprite)
@@ -44,5 +52,28 @@ public class MenuArrow : MonoBehaviour
             + "\nNew Menu Item: " + menuItems[sprite].name + "\nNew Image: " + images[2 *sprite]);
         menuItems[sprite].sprite = images[2 * sprite];
         selectedSprite = sprite;
+    }
+
+    void activate(int option)
+    {
+        switch (option)
+        {
+            case 0:
+                // play
+                break;
+            case 1:
+                // continue
+                break;
+            case 2:
+                // settings
+                settings.activateSettings();
+                break;
+            case 3:
+                // credits
+                break;
+            case 4:
+                // quit
+                break;
+        }
     }
 }

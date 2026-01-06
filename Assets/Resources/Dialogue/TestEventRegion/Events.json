@@ -20,6 +20,43 @@
           "chatbox": "testChatBoxImage",
           "portrait": "testPortrait",
           "choices": []
+        },
+        {
+          "text": "",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": [
+            {
+              "text": "forgive",
+              "nextLine": 4,
+	      "jumpTo": 6,
+              "choiceLines": 1
+            },
+            {
+              "text": "forget",
+              "nextLine": 5,
+	      "jumpTo": 6,
+              "choiceLines": 1
+            }
+          ]
+        },
+	{
+          "text": "option 1",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+	{
+          "text": "option 2",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "done",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
         }
       ]
     },
