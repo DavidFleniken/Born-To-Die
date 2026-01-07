@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fef8e6ff9d6c1c44787b687425e268ed, type: 3}
-  m_Name: DialogueRegion
+  m_Name: Act 1 DRegion
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRegion
   regionFolder: TestEventRegion
   generate: 0

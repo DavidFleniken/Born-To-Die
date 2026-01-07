@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] ScriptableObject EventsScriptableObject;
     static EventRegion dEvents;
 
+    public static float textSpeed = 0.05f;
+
     // singleton design pattern
     static DialogueManager singleton;
 
@@ -42,6 +45,10 @@ public class DialogueManager : MonoBehaviour
     static int choiceLines = -1;
     static int jumpTo = 0;
     static bool inChoice = false;
+
+    static Coroutine typingCoroutine;
+    static bool isTyping = false;
+    static string currentFullText;
 
     private void Awake()
     {
@@ -109,7 +116,8 @@ public class DialogueManager : MonoBehaviour
         curLine = lineNum;
         chatbox.sprite = eventArr[lineNum].chatbox;
         portrait.sprite = eventArr[lineNum].portrait;
-        text.text = eventArr[lineNum].text;
+        //text.text = eventArr[lineNum].text;
+        singleton.StartTyping(eventArr[lineNum].text);
 
         // choice logic
         //Debug.Log("Choices: " + eventArr[lineNum].choices.Length);
@@ -162,7 +170,8 @@ public class DialogueManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !inChoice)
             {
-                runLine(curLine + 1);
+                if (!isTyping) runLine(curLine + 1);
+                else CompleteTextInstantly();
             }
         }
 
@@ -171,5 +180,37 @@ public class DialogueManager : MonoBehaviour
         {
             runEvent("Test Event");
         }
+    }
+
+    public void StartTyping(string fullText)
+    {
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        currentFullText = fullText;
+        typingCoroutine = StartCoroutine(TypeText());
+    }
+
+    private IEnumerator TypeText()
+    {
+        isTyping = true;
+        text.text = "";
+
+        foreach (char c in currentFullText)
+        {
+            text.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        isTyping = false;
+    }
+
+    private void CompleteTextInstantly()
+    {
+        if (typingCoroutine != null)
+            StopCoroutine(typingCoroutine);
+
+        text.text = currentFullText;
+        isTyping = false;
     }
 }
