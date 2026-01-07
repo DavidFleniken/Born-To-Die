@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent (typeof(Camera))]
 public class CameraController : MonoBehaviour
@@ -9,7 +10,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject initialBackground; //optional - if defined prevents camera from going out of background bounds
     static GameObject activeBackground;
-    static SpriteRenderer blackScreen;
+    [SerializeField] Image blackout;
+    static Image blackScreen;
+    public static bool usingBlackscreen = false;
 
     static float backgroundBounds;
     Camera cam;
@@ -29,7 +32,7 @@ public class CameraController : MonoBehaviour
 
         // basic camera info
         cam = GetComponent<Camera>();
-        blackScreen = GetComponentInChildren<SpriteRenderer>();
+        blackScreen = blackout;
         height = cam.orthographicSize * 2f;
         width = height * cam.aspect;
 

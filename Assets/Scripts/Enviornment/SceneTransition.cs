@@ -82,11 +82,13 @@ public class SceneTransition : MonoBehaviour
 
             curAlpha += Time.deltaTime / fadeTime;
             CameraController.setBlackScreenAlpha(curAlpha);
+            CameraController.usingBlackscreen = true;
             //Debug.Log(curAlpha);
 
             if (curAlpha <= 0)
             {
                 fading = false;
+                CameraController.usingBlackscreen = false;
             }
         }
     }

@@ -1300,6 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   player: {fileID: 1642830649}
   initialBackground: {fileID: 589013396}
+  blackout: {fileID: 1230596604}
 --- !u!1 &331793711
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,6 +4126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneA1S1
   blackout: {fileID: 1230596604}
+  fadeDuration: 4
+  fadeWait: 0.8
 --- !u!4 &1393535377
 Transform:
   m_ObjectHideFlags: 0
