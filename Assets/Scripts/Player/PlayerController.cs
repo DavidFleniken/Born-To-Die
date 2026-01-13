@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour, IInteractor
     static bool isPaused = false;
     static movementMode lastMode; // mode to return to after unfreezing
 
+    DialogueInteractable intObj;
+    string intObjName;
+
     private void Start()
     {
         //check theres only one player
@@ -80,6 +83,9 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     private void Update()
     {
+        anim.SetFloat("X Velo", 0);
+        anim.SetFloat("Y Velo", 0);
+        anim.SetBool("isMoving", false);
         if (curMode == movementMode.Frozen)
         {
             return;
@@ -145,9 +151,14 @@ public class PlayerController : MonoBehaviour, IInteractor
 
             #endregion
 
+        // interacting
+        if (intObj != null && Input.GetKeyDown(KeyCode.E))
+        {
+            intObj.interact();
+        }
 
-            // anim data
-            bool isMoving = false;
+        // anim data
+        bool isMoving = false;
         if (velo.magnitude > 0.01f)
         {
             isMoving = true;
@@ -184,11 +195,25 @@ public class PlayerController : MonoBehaviour, IInteractor
         }
     }
 
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.TryGetComponent<DialogueInteractable>(out DialogueInteractable temp))
+        {
+            intObj = temp;
+            intObjName = intObj.gameObject.name;
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D col)
     {
         if (col.CompareTag("Stairs"))
         {
             curMode = movementMode.Normal;
+        }
+        else if (col.name == intObjName)
+        {
+            intObjName = null;
+            intObj = null;
         }
     }
 }

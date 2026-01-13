@@ -19,34 +19,28 @@
           "text": "sorry about that",
           "chatbox": "testChatBoxImage",
           "portrait": "testPortrait",
-          "choices": []
-        },
-        {
-          "text": "",
-          "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
           "choices": [
             {
               "text": "forgive",
-              "nextLine": 4,
-	      "jumpTo": 6,
+              "nextLine": 3,
+              "jumpTo": 5,
               "choiceLines": 1
             },
             {
               "text": "forget",
-              "nextLine": 5,
-	      "jumpTo": 6,
+              "nextLine": 4,
+              "jumpTo": 5,
               "choiceLines": 1
             }
           ]
         },
-	{
+        {
           "text": "option 1",
           "chatbox": "testChatBoxImage",
           "portrait": "testPortrait",
           "choices": []
         },
-	{
+        {
           "text": "option 2",
           "chatbox": "testChatBoxImage",
           "portrait": "testPortrait",
@@ -77,142 +71,229 @@
         }
       ]
     },
+
     {
-      "name": "Cutscene Act 1 Scene 1",
+      "name": "Bed",
       "lines": [
         {
-          "text": "You don’t usually think about this while you’re just living life, but a lot changes when you grow up. Things you grew up with silently disappear and you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Clothes stop fitting, but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "You lose interest in what used to be your favorite cartoons, but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Vegetables suddenly don’t seem like the worst thing in the world, but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "You stop playing with toys, but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "People you knew as a kid that were older grew up into adults way before you could, but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "People grow up, and they move on with their lives… but you don’t even notice.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Except I did notice. I noticed immediately. Nobody else seemed to, but I did.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "And I stayed quiet… because everyone seems to be “used to life”, like they’ve had lives before this one. Everything naturally flows into place. Things just change and no one bats an eye.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Bringing up the change just interrupts the flow of it all. It makes people aware.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "And I learned… that people hate being aware.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "I was silenced.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "I’m forced to live with being aware and not being able to talk about it with anybody.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Everyone around me just wants to act like change isn’t there. It really changed my perspective on how nostalgia makes me feel.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "Nostalgia’s supposed to feel good, but every time I get nostalgia, I just get depressed.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "I wish time would slow down.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "But it doesn’t matter how I feel. Life keeps moving… with or without you… whether you’re ready or not. That’s just the sad truth.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "But I…",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "(Heavy panting)",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "I…",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "(Snip)",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
-          "choices": []
-        },
-        {
-          "text": "I chose my own change.",
-          "chatbox": "XanaChatbox",
-          "portrait": "Xana",
+          "text": "This is your bed. You sleep on it……NOTHING MORE.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
           "choices": []
         }
       ]
-    }    
+    },
+    {
+      "name": "Pictures",
+      "lines": [
+        {
+          "text": "Pictures of you, your friends, your family, your boyfriend, etc",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "Look through them?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 2,
+              "jumpTo": 999,
+              "choiceLines": 1
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        },
+        {
+          "text": "You flip through them.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Box 1",
+      "lines": [
+        {
+          "text": "CD’s. You like collecting them…a little too much. Burning them is your hobby.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Box 2",
+      "lines": [
+        {
+          "text": "Video games your brother left behind when he moved out for college.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "TV",
+      "lines": [
+        {
+          "text": "You and your friends watch movies and play video games on this TV, another thing your brother left behind when he moved out for college.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Mini Fridge",
+      "lines": [
+        {
+          "text": "A mini fridge. You keep drinks in there for when you or your friends get thirsty.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Drawer",
+      "lines": [
+        {
+          "text": "Open?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 1,
+              "jumpTo": 1,
+              "choiceLines": 1
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        },
+        {
+          "text": "What do you want to look at?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Box of Cigarettes",
+              "nextLine": 2,
+              "jumpTo": 1,
+              "choiceLines": 1
+            },
+            {
+              "text": "ID",
+              "nextLine": 3,
+              "jumpTo": 1,
+              "choiceLines": 1
+            },
+            {
+              "text": "Antidepressants",
+              "nextLine": 4,
+              "jumpTo": 1,
+              "choiceLines": 1
+            },
+            {
+              "text": "Photo",
+              "nextLine": 5,
+              "jumpTo": 1,
+              "choiceLines": 1
+            },
+            {
+              "text": "Close drawer",
+              "nextLine": 6,
+              "jumpTo": 999,
+              "choiceLines": 1
+            }
+          ]
+        },
+        {
+          "text": "Box of Cigarettes: You keep telling yourself you’ll quit, but ultimately see no point in doing so, you’re gonna die anyway.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "ID:\nNAME: Savannah Camila Rivera\nD.O.B: 6/4/1990\nAGE: 18\nHEIGHT: 5’7\nHAIR: BRN\nEYES: BRN",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "Antidepressants: They stopped working.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "Photo: This is your boyfriend, Vixen. Reminds you of a fox, doesn’t he?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "You close the drawer.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Closet",
+      "lines": [
+        {
+          "text": "Open?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 1,
+              "jumpTo": 999,
+              "choiceLines": 1
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        },
+        {
+          "text": "Some of these clothes are from middle school. You wonder if they still fit, though you highly doubt it.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Trashbin",
+      "lines": [
+        {
+          "text": "It’s filled with crumpled up papers of lyrics you wrote for your band, and guitar chords…alongside normal trash too. Nothing useful.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    }
   ]
 }

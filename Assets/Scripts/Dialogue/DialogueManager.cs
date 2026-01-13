@@ -35,6 +35,7 @@ public class DialogueManager : MonoBehaviour
     static EventRegion dEvents;
 
     public static float textSpeed = 0.05f;
+    static TMP_Text[] textArr;
 
     // singleton design pattern
     static DialogueManager singleton;
@@ -60,6 +61,7 @@ public class DialogueManager : MonoBehaviour
             portrait = Emptyportrait;
             text = textbox;
             choiceButtons = choiceButtonsParent;
+            textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
 
             chatbox.gameObject.SetActive(false);
             portrait.gameObject.SetActive(false);
@@ -126,10 +128,21 @@ public class DialogueManager : MonoBehaviour
             inChoice = true;
 
             choiceButtons.SetActive(true);
-            TMP_Text[] textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
+            //Debug.Log("tectarr: " + textArr.Length);
+            int choiceLen = eventArr[lineNum].choices.Length;
+
+            if (choiceLen > 3)
+            {
+                choiceButtons.transform.localPosition = new Vector3(-5.52f, 3.97f, 0);
+            }
+            else
+            {
+                choiceButtons.transform.localPosition = new Vector3(-1.23f, 3.97f, 0);
+            }
+
             for (int i = 0; i < textArr.Length; i++)
             {
-                if (eventArr[lineNum].choices.Length <= i)
+                if (i >= choiceLen)
                 {
                     textArr[i].transform.parent.gameObject.SetActive(false);
                 }
@@ -152,7 +165,6 @@ public class DialogueManager : MonoBehaviour
         jumpTo = eventArr[line].choices[choice].jumpTo;
 
         // ensure all buttons are enabled before disabling parent
-        TMP_Text[] textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
         for (int i = 0; i < textArr.Length; i++)
         {
             textArr[i].transform.parent.gameObject.SetActive(true);

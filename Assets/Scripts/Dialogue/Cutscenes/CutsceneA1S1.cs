@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -6,9 +7,14 @@ public class CutsceneA1S1 : MonoBehaviour
 {
     // Cutscene Script for act 1 scene 1
     [SerializeField] Image blackout;
+    [SerializeField] VideoClip cutsceneClip;
     [SerializeField] float fadeDuration; // in seconds
     [SerializeField] float fadeWait; // in seconds, time to wait on black screen before start fading
     bool endedCutscene = false;
+    bool startedCutscene = false;
+    VideoPlayer vp;
+    double cutsceneDuration;
+    
 
     private void Start()
     {
@@ -16,16 +22,30 @@ public class CutsceneA1S1 : MonoBehaviour
         Color setColor = blackout.color;
         setColor.a = 1;
         blackout.color = setColor;
+        vp = blackout.gameObject.GetComponent<VideoPlayer>();
 
-        DialogueManager.runEvent("Cutscene Act 1 Scene 1");
+        vp.clip = cutsceneClip;
+        vp.Play();
+        cutsceneDuration = cutsceneClip.length;
+        PlayerController.freezeInput();
+        StartCoroutine(initSignal()); // needs to have a second to load before vp.isplaying is accurate
+    }
+
+    private IEnumerator initSignal()
+    {
+        yield return new WaitForSeconds(0.5f);
+        startedCutscene = true;
     }
 
     private void Update()
     {
-        if (PlayerController.getMode() != PlayerController.movementMode.Frozen && !endedCutscene)
+        Debug.Log("is play: " + vp.isPlaying);
+
+        if (!vp.isPlaying && !endedCutscene && startedCutscene)
         {
             // cutscene over
             endedCutscene = true;
+            vp.renderMode = VideoRenderMode.RenderTexture;
             // deactivate blackout
             StartCoroutine(Fade());
         }
