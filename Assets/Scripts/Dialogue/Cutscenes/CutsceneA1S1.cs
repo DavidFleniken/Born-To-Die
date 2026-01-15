@@ -66,5 +66,8 @@ public class CutsceneA1S1 : MonoBehaviour
 
             yield return new WaitForSeconds(fadeDuration/100);
         }
+        yield return new WaitForSeconds(.5f);
+        PlayerController.unfreezeInput();
+        Act1GameManager.activateObjective();
     }
 }

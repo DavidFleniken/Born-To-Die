@@ -7,11 +7,22 @@ public class RenderOrderDecider : MonoBehaviour
     SpriteRenderer sr;
     GameObject player;
     BoxCollider2D playerBC;
+    BoxCollider2D objectBC;
+    float objectPivot = 0;
     int abovePlayerOrder = 11;
     int belowPlayerOrder = 9;
 
     private void Start()
     {
+        if (TryGetComponent<BoxCollider2D>(out objectBC))
+        {
+            objectPivot = objectBC.bounds.center.y;
+        }
+        else
+        {
+            objectPivot = transform.position.y;
+        }
+
         sr = GetComponentInChildren<SpriteRenderer>();
         player = GameObject.FindWithTag("Player"); // hopefully shouldn't be an issue since exactly 1 player per scene
         playerBC = player.GetComponent<BoxCollider2D>();
@@ -24,7 +35,7 @@ public class RenderOrderDecider : MonoBehaviour
 
     private void Update()
     {
-        if (playerBC.bounds.center.y > transform.position.y)
+        if (playerBC.bounds.center.y > objectPivot)
         {
             sr.sortingOrder = abovePlayerOrder;
         }

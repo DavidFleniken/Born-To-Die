@@ -4,6 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections;
 
+
+public interface dialogueFinishedListener
+{
+    public void onFinished();
+}
 public class DialogueManager : MonoBehaviour
 {
     [System.Serializable]
@@ -51,6 +56,29 @@ public class DialogueManager : MonoBehaviour
     static bool isTyping = false;
     static string currentFullText;
 
+    // signal logic
+    static DialogueMenu menu;
+    static int lineSignal;
+    // Does something if line reaches line signal. 
+    // Can be line number out of range if dEvent sends it there. 
+    // -1 means no signal being kept track of
+
+    // listeners that do something when dialogue ended
+    static List<dialogueFinishedListener> listeners = new List<dialogueFinishedListener>();
+
+    public static void addListener(dialogueFinishedListener listner)
+    {
+        listeners.Add(listner);
+    }
+
+    private static void finishedListener()
+    {
+        foreach (dialogueFinishedListener listner in listeners)
+        {
+            listner.onFinished();
+        }
+    }
+
     private void Awake()
     {
         if (singleton == null)
@@ -74,8 +102,27 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public static void runEvent(string eventName)
+    public static void runEvent(string eventName) // Not using signal
     {
+        lineSignal = -1;
+        menu = null;
+        eventRun(eventName);
+    }
+
+    public static void runEvent(string eventName, int lineSig, DialogueMenu dMenu) // Overload if using dialogue signal
+    {
+        lineSignal = lineSig;
+        menu = dMenu;
+        eventRun(eventName);
+    }
+
+    static void eventRun(string eventName)
+    {
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true;
+        Act1GameManager.UpdateTrackedInteraction(eventName);
+
+
         PlayerController.freezeInput();
 
         eventArr = dEvents.getEvents()[eventName];
@@ -92,7 +139,15 @@ public class DialogueManager : MonoBehaviour
     static void runLine(int lineNum)
     {
         //Debug.Log("ln: " + lineNum);
-        Debug.Log("CL: " + choiceLines);
+        //Debug.Log("CL: " + choiceLines);
+
+        if (lineSignal != -1 && lineNum == lineSignal)
+        {
+            menu.onSignal();
+            lineSignal = -1;
+            menu = null;
+        }
+
         if (choiceLines > 0)
         {
             choiceLines--;
@@ -112,6 +167,8 @@ public class DialogueManager : MonoBehaviour
             text.gameObject.SetActive(false);
             curLine = 0;
             PlayerController.unfreezeInput();
+            Debug.Log("FINISHED");
+            finishedListener();
             return;
         }
 

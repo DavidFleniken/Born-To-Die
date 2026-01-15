@@ -3,12 +3,13 @@ using UnityEngine;
 
 public interface IInteractor
 {
-    public void interact();
+    // might delete
 }
 
 public interface IInteractable
 {
     public void onInteract();
+    public GameObject getGameObject();
 }
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -26,13 +27,14 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     public enum movementMode { Normal, Stairs, Frozen }
     static movementMode curMode = movementMode.Normal;
+    bool stairRight = true;
 
     // timer stuff
     static float timerEnd = 0f;
     static bool isPaused = false;
     static movementMode lastMode; // mode to return to after unfreezing
 
-    DialogueInteractable intObj;
+    IInteractable intObj;
     string intObjName;
 
     private void Start()
@@ -131,11 +133,9 @@ public class PlayerController : MonoBehaviour, IInteractor
             }
             else
             {
-                velo.x = inputY;
+                velo.x = stairRight ? inputY : -inputY;
             }
-
-                velo.y = inputY;
-            velo.y = velo.x;
+            velo.y = stairRight ? velo.x : -velo.x;
 
 
             velo.Normalize();
@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour, IInteractor
         // interacting
         if (intObj != null && Input.GetKeyDown(KeyCode.E))
         {
-            intObj.interact();
+            intObj.onInteract();
         }
 
         // anim data
@@ -172,41 +172,42 @@ public class PlayerController : MonoBehaviour, IInteractor
 
         anim.SetBool("isMoving", isMoving);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            interact();
-        }
 
     }
 
-    public void interact()
-    {
-        // do stuff here for dialouge or interacting or something
-    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Stairs"))
+        if (col.CompareTag("Stairs") || col.CompareTag("Stairs Right"))
         {
             if (curMode != movementMode.Stairs)
             {
                 curMode = movementMode.Stairs;
+                stairRight = true;
+            }
+        }
+        else if (col.CompareTag("Stairs Left"))
+        {
+            if (curMode != movementMode.Stairs)
+            {
+                curMode = movementMode.Stairs;
+                stairRight = false;
             }
         }
     }
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.TryGetComponent<DialogueInteractable>(out DialogueInteractable temp))
+        if (col.TryGetComponent<IInteractable>(out IInteractable temp))
         {
             intObj = temp;
-            intObjName = intObj.gameObject.name;
+            intObjName = intObj.getGameObject().name;
         }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Stairs"))
+        if (col.CompareTag("Stairs") || col.CompareTag("Stairs Right") || col.CompareTag("Stairs Left"))
         {
             curMode = movementMode.Normal;
         }

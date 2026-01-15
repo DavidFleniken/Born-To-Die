@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuArrow : MonoBehaviour
 {
@@ -60,6 +61,7 @@ public class MenuArrow : MonoBehaviour
         {
             case 0:
                 // play
+                SceneManager.LoadScene("Act_1_Part_1");
                 break;
             case 1:
                 // continue
@@ -73,6 +75,12 @@ public class MenuArrow : MonoBehaviour
                 break;
             case 4:
                 // quit
+                #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                #else
+                    Application.Quit();
+                #endif
+
                 break;
         }
     }

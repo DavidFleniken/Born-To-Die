@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 
+
 public class Act1GameManager : MonoBehaviour
 {
     [SerializeField] TMP_Text objectiveBox;
+    [SerializeField] GameObject objectiveBackground;
+    [SerializeField] float objectiveEnd;
+    [SerializeField] float objectiveTranslationTime;
+    float objTrans;
+    static bool isSliding;
 
     static Dictionary<string, bool> trackedInteractions;
     static Act1GameManager singleton;
@@ -22,6 +28,9 @@ public class Act1GameManager : MonoBehaviour
             return;
         }
         singleton = this;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        objTrans = objectiveEnd - objectiveBackground.transform.localPosition.x;
 
         if (trackedInteractions == null) // init trackedInteractions
         {
@@ -36,6 +45,12 @@ public class Act1GameManager : MonoBehaviour
             trackedInteractions.Add("Closet", false);
             trackedInteractions.Add("Trashbin", false);
             trackedInteractions.Add("Drawer", false);
+            trackedInteractions.Add("Box of Cigarettes", false);
+            trackedInteractions.Add("ID", false);
+            trackedInteractions.Add("Antidepressants", false);
+            trackedInteractions.Add("Photo", false);
+
+
 
 
             keySet = trackedInteractions.Keys.ToHashSet();
@@ -53,6 +68,25 @@ public class Act1GameManager : MonoBehaviour
 
     private void Update()
     {
-        objectiveBox.text = "OBJECTIVE!\nExplore the room.\n" + numTracked + "/9";
+        objectiveBox.text = "OBJECTIVE! Explore the room: " + numTracked + "/" + trackedInteractions.Count;
+
+        if (isSliding)
+        {
+            if (objectiveBackground.transform.localPosition.x >= objectiveEnd)
+            {
+                isSliding = false;
+                objectiveBackground.transform.localPosition = new Vector2(objectiveEnd, objectiveBackground.transform.localPosition.y);
+                return;
+            }
+
+            objectiveBackground.transform.localPosition = new Vector2(
+                objectiveBackground.transform.localPosition.x + (objTrans/objectiveTranslationTime)*Time.deltaTime, 
+                objectiveBackground.transform.localPosition.y);
+        }
+    }
+
+    public static void activateObjective()
+    {
+        isSliding = true;
     }
 }

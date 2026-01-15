@@ -173,9 +173,9 @@
           "choices": [
             {
               "text": "Yes",
-              "nextLine": 1,
-              "jumpTo": 1,
-              "choiceLines": 1
+              "nextLine": 99,
+              "jumpTo": 99,
+              "choiceLines": 0
             },
             {
               "text": "No",
@@ -184,76 +184,48 @@
               "choiceLines": 0
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "Box of Cigarettes",
+      "lines": [
         {
-          "text": "What do you want to look at?",
-          "chatbox": "Empty Chatbox",
-          "portrait": "None",
-          "choices": [
-            {
-              "text": "Box of Cigarettes",
-              "nextLine": 2,
-              "jumpTo": 1,
-              "choiceLines": 1
-            },
-            {
-              "text": "ID",
-              "nextLine": 3,
-              "jumpTo": 1,
-              "choiceLines": 1
-            },
-            {
-              "text": "Antidepressants",
-              "nextLine": 4,
-              "jumpTo": 1,
-              "choiceLines": 1
-            },
-            {
-              "text": "Photo",
-              "nextLine": 5,
-              "jumpTo": 1,
-              "choiceLines": 1
-            },
-            {
-              "text": "Close drawer",
-              "nextLine": 6,
-              "jumpTo": 999,
-              "choiceLines": 1
-            }
-          ]
-        },
-        {
-          "text": "Box of Cigarettes: You keep telling yourself you’ll quit, but ultimately see no point in doing so, you’re gonna die anyway.",
-          "chatbox": "Empty Chatbox",
-          "portrait": "None",
-          "choices": []
-        },
-        {
-          "text": "ID:\nNAME: Savannah Camila Rivera\nD.O.B: 6/4/1990\nAGE: 18\nHEIGHT: 5’7\nHAIR: BRN\nEYES: BRN",
-          "chatbox": "Empty Chatbox",
-          "portrait": "None",
-          "choices": []
-        },
-        {
-          "text": "Antidepressants: They stopped working.",
-          "chatbox": "Empty Chatbox",
-          "portrait": "None",
-          "choices": []
-        },
-        {
-          "text": "Photo: This is your boyfriend, Vixen. Reminds you of a fox, doesn’t he?",
-          "chatbox": "Empty Chatbox",
-          "portrait": "None",
-          "choices": []
-        },
-        {
-          "text": "You close the drawer.",
+          "text": "You keep telling yourself you’ll quit, but ultimately see no point in doing so, you’re gonna die anyway.",
           "chatbox": "Empty Chatbox",
           "portrait": "None",
           "choices": []
         }
       ]
     },
+    {
+      "name": "ID",
+      "lines": [
+      ]
+    },
+    {
+      "name": "Antidepressants",
+      "lines": [
+        {
+          "text": "They stopped working.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Photo",
+      "lines": [
+        {
+          "text": "This is your boyfriend, Vixen. Reminds you of a fox, doesn’t he?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    
     {
       "name": "Closet",
       "lines": [

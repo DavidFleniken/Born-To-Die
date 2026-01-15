@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DialogueInteractable : MonoBehaviour
+public class DialogueInteractable : MonoBehaviour, IInteractable
 {
     [SerializeField] string dEventName;
 
@@ -12,9 +12,17 @@ public class DialogueInteractable : MonoBehaviour
         }
     }
 
-    public void interact()
+    public void onInteract()
     {
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true;
         DialogueManager.runEvent(dEventName);
-        Act1GameManager.UpdateTrackedInteraction(dEventName);
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+    }
+
+    public GameObject getGameObject()
+    {
+        return this.gameObject;
     }
 }
