@@ -13,7 +13,7 @@ public class Act1GameManager : MonoBehaviour
     float objTrans;
     static bool isSliding;
 
-    static Dictionary<string, bool> trackedInteractions;
+    internal static Dictionary<string, bool> trackedInteractions;
     static Act1GameManager singleton;
 
     static HashSet<string> keySet;
