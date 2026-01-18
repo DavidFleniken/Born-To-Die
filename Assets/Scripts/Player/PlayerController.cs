@@ -26,13 +26,13 @@ public class PlayerController : MonoBehaviour, IInteractor
     static Vector2 velo;
 
     public enum movementMode { Normal, Stairs, Frozen }
-    static movementMode curMode = movementMode.Normal;
+    internal static movementMode curMode = movementMode.Normal;
     bool stairRight = true;
 
     // timer stuff
     static float timerEnd = 0f;
     static bool isPaused = false;
-    static movementMode lastMode; // mode to return to after unfreezing
+    internal static movementMode lastMode; // mode to return to after unfreezing
 
     IInteractable intObj;
     string intObjName;
