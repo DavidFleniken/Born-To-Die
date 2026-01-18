@@ -16,6 +16,7 @@ public class Saving : MonoBehaviour
         public float playerZ;
 
         public string sceneName;
+        public PlayerController.movementMode movementMode;
         public Dictionary<string, bool> act1Flags;
     }
 
@@ -31,7 +32,8 @@ public class Saving : MonoBehaviour
             playerY = pos.y,
             playerZ = pos.z,
             sceneName = SceneManager.GetActiveScene().name,
-            act1Flags = Act1GameManager.trackedInteractions
+            act1Flags = Act1GameManager.trackedInteractions,
+            movementMode = PlayerController.lastMode
         };
         
         var serializer = new SerializerBuilder().Build();
@@ -94,6 +96,8 @@ public class Saving : MonoBehaviour
             data.playerY,
             data.playerZ
         );
+        PlayerController.lastMode = data.movementMode;
+        PlayerController.curMode = data.movementMode;
         Act1GameManager.trackedInteractions = new Dictionary<string, bool>(data.act1Flags);
     }
 }
