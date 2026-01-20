@@ -20,6 +20,8 @@ public class Act1GameManager : MonoBehaviour
 
     static int numTracked = 0;
 
+    bool ranEvent1 = false;
+
     private void Start()
     {
         if (singleton != null)
@@ -37,7 +39,7 @@ public class Act1GameManager : MonoBehaviour
             trackedInteractions = new Dictionary<string, bool>();
 
             trackedInteractions.Add("Bed", false);
-            trackedInteractions.Add("Pictures", false);
+            /*trackedInteractions.Add("Pictures", false);
             trackedInteractions.Add("Box 1", false);
             trackedInteractions.Add("Box 2", false);
             trackedInteractions.Add("TV", false);
@@ -48,7 +50,7 @@ public class Act1GameManager : MonoBehaviour
             trackedInteractions.Add("Box of Cigarettes", false);
             trackedInteractions.Add("ID", false);
             trackedInteractions.Add("Antidepressants", false);
-            trackedInteractions.Add("Photo", false);
+            trackedInteractions.Add("Photo", false);*/
 
 
 
@@ -82,6 +84,17 @@ public class Act1GameManager : MonoBehaviour
             objectiveBackground.transform.localPosition = new Vector2(
                 objectiveBackground.transform.localPosition.x + (objTrans/objectiveTranslationTime)*Time.deltaTime, 
                 objectiveBackground.transform.localPosition.y);
+        }
+
+        if (!ranEvent1 && numTracked == trackedInteractions.Count)
+        {
+            ranEvent1 = true;
+            Dictionary<string, Vector2> camTargets = new Dictionary<string, Vector2>();
+            camTargets.Add("Yuliana", new Vector2(15f, 0));
+            camTargets.Add("Xana", PlayerController.getPlayerPos());
+            DialogueManager.setCamFocus(camTargets);
+
+            DialogueManager.runEvent("Band Pickup");
         }
     }
 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef8e6ff9d6c1c44787b687425e268ed, type: 3}
   m_Name: Act 1 DRegion
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRegion
-  regionFolder: TestEventRegion
+  regionFolder: Act1Home
   generate: 0

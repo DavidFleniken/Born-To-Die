@@ -39,7 +39,7 @@ public class CutsceneA1S1 : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("is play: " + vp.isPlaying);
+        //Debug.Log("is play: " + vp.isPlaying);
 
         if (!vp.isPlaying && !endedCutscene && startedCutscene)
         {
@@ -58,7 +58,7 @@ public class CutsceneA1S1 : MonoBehaviour
         float alpha = 1;
         while (alpha > 0)
         {
-            if (CameraController.usingBlackscreen) yield break;
+            if (CameraController.usingBlackscreen) yield break; // dont mess with fading if something else is already using it
 
             alpha -= 0.01f;
             setColor.a = alpha;
@@ -66,7 +66,7 @@ public class CutsceneA1S1 : MonoBehaviour
 
             yield return new WaitForSeconds(fadeDuration/100);
         }
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.1f);
         PlayerController.unfreezeInput();
         Act1GameManager.activateObjective();
     }

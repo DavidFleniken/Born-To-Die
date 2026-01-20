@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour, IInteractor
     {
         lastMode = curMode;
         curMode = movementMode.Frozen;
+
+        Debug.Log("Frozen: " + StackTraceUtility.ExtractStackTrace());
     }
 
     public static void unfreezeInput()
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     private void Update()
     {
+        Debug.Log("Move: " + curMode);
+
         anim.SetFloat("X Velo", 0);
         anim.SetFloat("Y Velo", 0);
         anim.SetBool("isMoving", false);
@@ -175,6 +179,10 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     }
 
+    public static Vector2 getPlayerPos()
+    {
+        return singleton.transform.position;
+    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
