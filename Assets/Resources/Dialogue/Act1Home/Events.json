@@ -356,6 +356,71 @@
           "choices": []
         }
       ]
+    },
+    {
+      "name": "Band Banter",
+      "lines": [
+        {
+          "text": "C’mon Xana, instruments don’t play themselves…unless ghosts can play them….do you think ghosts are real?",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "Well…",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "GHOSTS ARE REAL?!!",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "I didn’t even get to say anything!",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Let’s just go…wait where are the boys?",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "DEAD!",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "Sprout! Stop it!!…Vixen said he’s going to run a little late today, family issues",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Family issues..?",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "B-But don’t worry! He said he’d 100% be there! And not to wait for him! Coal said he can’t make it though, bad migraine..",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Ah, poor dude, I’ll have to check on him at some point…alright well let’s go then",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        }
+      ]
     }    
   ]
 }

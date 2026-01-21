@@ -2,9 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System.Collections;
 
 
-public class Act1GameManager : MonoBehaviour
+public class Act1GameManager : MonoBehaviour, dialogueFinishedListener
 {
     [SerializeField] TMP_Text objectiveBox;
     [SerializeField] GameObject objectiveBackground;
@@ -94,8 +95,25 @@ public class Act1GameManager : MonoBehaviour
             camTargets.Add("Xana", PlayerController.getPlayerPos());
             DialogueManager.setCamFocus(camTargets);
 
+            DialogueManager.addListener(this);
             DialogueManager.runEvent("Band Pickup");
         }
+    }
+
+    public void onFinished()
+    {
+        // tp stuff
+        if (DialogueManager.getLastEventName() == "Band Pickup")
+        {
+            GetComponent<SceneTransition>().activate(PlayerController.getPlayerObject());
+            StartCoroutine(runBandBanter());
+        }
+    }
+
+    private IEnumerator runBandBanter()
+    {
+        yield return new WaitForSeconds(3);
+        DialogueManager.runEvent("Band Banter");
     }
 
     public static void activateObjective()

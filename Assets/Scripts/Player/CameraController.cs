@@ -123,6 +123,10 @@ public class CameraController : MonoBehaviour
                 activeBackground.transform.position.x - backgroundBounds + width/2, 
                 activeBackground.transform.position.x + backgroundBounds - width/2);
         }
+        else
+        {
+            Debug.LogError("No Background!!!");
+        }
 
         transform.position = cameraPos;
     }

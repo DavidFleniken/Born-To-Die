@@ -27,10 +27,14 @@ public class DialogueManager : MonoBehaviour
         public choice[] choices;
     }
 
+    public static string mainCharacter = "Xana";
+
     [SerializeField] SpriteRenderer Emptychatbox;
     static SpriteRenderer chatbox;
     [SerializeField] SpriteRenderer Emptyportrait;
     static SpriteRenderer portrait;
+    [SerializeField] SpriteRenderer SecondEmptyportrait;
+    static SpriteRenderer secondPortrait;
     [SerializeField] TMP_Text textbox;
     static TMP_Text text;
     [SerializeField] GameObject choiceButtonsParent;
@@ -75,6 +79,18 @@ public class DialogueManager : MonoBehaviour
         listeners.Add(listner);
     }
 
+    /*
+     * This may cause issues. Use "getLastEventName() to listen to specific events instead"
+    public static void removeListener(dialogueFinishedListener listener)
+    {
+        listeners.Remove(listener);
+    }
+    */
+    public static string getLastEventName()
+    {
+        return dEventName;
+    }
+
     public static void setCamFocus(Dictionary<string, Vector2> inputDict)
     {
         camFocus = new Dictionary<string, Vector2>(inputDict, System.StringComparer.OrdinalIgnoreCase);
@@ -99,12 +115,14 @@ public class DialogueManager : MonoBehaviour
             dEvents = (EventRegion) EventsScriptableObject; // Error if given ScriptObj doesn't implement event region
             chatbox = Emptychatbox;
             portrait = Emptyportrait;
+            secondPortrait = SecondEmptyportrait;
             text = textbox;
             choiceButtons = choiceButtonsParent;
             textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
 
             chatbox.gameObject.SetActive(false);
             portrait.gameObject.SetActive(false);
+            secondPortrait.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
             choiceButtons.SetActive(false);
         }
@@ -137,6 +155,7 @@ public class DialogueManager : MonoBehaviour
         //Cursor.visible = true;
 
         dEventName = eventName;
+
 
         PlayerController.freezeInput();
 
@@ -179,6 +198,7 @@ public class DialogueManager : MonoBehaviour
             inEvent = false;
             chatbox.gameObject.SetActive(false);
             portrait.gameObject.SetActive(false);
+            secondPortrait.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
             curLine = 0;
             PlayerController.unfreezeInput();
@@ -188,23 +208,30 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        // NAMES FOR CHATBOXES MUST BE IN FORMAT: "[name]Chatbox" ELSE THIS BREAKS
+        // Im not proud of this solution. fix later (maybe)
+        string curName = eventArr[lineNum].chatbox.name.ToLower();
+        curName = curName.Length > 7 ? curName[..^7] : "";
+
+
         curLine = lineNum;
-        chatbox.sprite = eventArr[lineNum].chatbox;
-        portrait.sprite = eventArr[lineNum].portrait;
-
         //camera stuff
-        if (camFocus != null)
+        if (camFocus != null && camFocus.ContainsKey(curName))
         {
-            // NAMES FOR CHATBOXES MUST BE IN FORMAT: "[name]Chatbox" ELSE THIS BREAKS
-            // Im not proud of this solution. fix later (maybe)
-            string curName = eventArr[lineNum].chatbox.name;
-            curName = curName.Length > 7 ? curName[..^7] : "";
+           CameraController.moveTo(camFocus[curName]);
+        }
 
-            if (camFocus.ContainsKey(curName))
-            {
-                CameraController.moveTo(camFocus[curName]);
-            }
-
+        // Sprite and Chatbox
+        chatbox.sprite = eventArr[lineNum].chatbox;
+        // check if main character
+        if (curName == mainCharacter.ToLower())
+        {
+            portrait.sprite = eventArr[lineNum].portrait;
+        }
+        else
+        {
+            secondPortrait.gameObject.SetActive(true);
+            secondPortrait.sprite = eventArr[lineNum].portrait;
         }
 
         //text.text = eventArr[lineNum].text;

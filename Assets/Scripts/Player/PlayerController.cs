@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour, IInteractor
         anim.SetBool("isMoving", false);
         if (curMode == movementMode.Frozen)
         {
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -182,6 +183,11 @@ public class PlayerController : MonoBehaviour, IInteractor
     public static Vector2 getPlayerPos()
     {
         return singleton.transform.position;
+    }
+
+    public static GameObject getPlayerObject()
+    {
+        return singleton.gameObject;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
