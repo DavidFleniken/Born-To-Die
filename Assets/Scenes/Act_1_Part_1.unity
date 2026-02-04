@@ -1772,6 +1772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   player: {fileID: 1642830649}
   initialBackground: {fileID: 589013396}
+  activeBackground: {fileID: 0}
   blackout: {fileID: 1230596604}
 --- !u!1 &331793711
 GameObject:
@@ -2941,6 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35db9b5934bd47ba9335956f808981a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Saving
+  settings: {fileID: 1620094973}
 --- !u!1 &589013396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7953,6 +7955,17 @@ Transform:
   - {fileID: 1663861899}
   m_Father: {fileID: 841156316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620094973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4986814960223152255, guid: 6c16a9d657a320749ad22c2283780dda, type: 3}
+  m_PrefabInstance: {fileID: 39429211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad06506029e3b2448ae22f24549b12b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Settings
 --- !u!1 &1632000292
 GameObject:
   m_ObjectHideFlags: 0
@@ -9411,6 +9424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f35db9b5934bd47ba9335956f808981a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Saving
+  settings: {fileID: 1620094973}
 --- !u!114 &1960772169
 MonoBehaviour:
   m_ObjectHideFlags: 0

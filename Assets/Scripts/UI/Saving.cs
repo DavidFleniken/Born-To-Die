@@ -16,9 +16,12 @@ public class Saving : MonoBehaviour
         public float playerZ;
 
         public string sceneName;
+        public string background;
         public PlayerController.movementMode movementMode;
         public Dictionary<string, bool> act1Flags;
     }
+
+    [SerializeField] private Settings settings;
 
     public void Save()
     {
@@ -31,6 +34,7 @@ public class Saving : MonoBehaviour
             playerX = pos.x,
             playerY = pos.y,
             playerZ = pos.z,
+            background = CameraController.GetBackground().name,
             sceneName = SceneManager.GetActiveScene().name,
             act1Flags = Act1GameManager.trackedInteractions,
             movementMode = PlayerController.lastMode
@@ -90,12 +94,24 @@ public class Saving : MonoBehaviour
 
     private void ApplyImmediately(SaveData data)
     {
+        settings.toggleSettings();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(
             data.playerX,
             data.playerY,
             data.playerZ
         );
+        var bg = GameObject.Find(data.background);
+
+        if (bg == null)
+        {
+            Debug.LogError($"Background '{data.background}' not found!");
+            return;
+        }
+
+        CameraController.SetBackground(bg);
+        PerspectiveScaler.setBg(bg);
+        PerspectiveScaler.setBg(GameObject.Find(data.background));
         PlayerController.lastMode = data.movementMode;
         PlayerController.curMode = data.movementMode;
         Act1GameManager.trackedInteractions = new Dictionary<string, bool>(data.act1Flags);

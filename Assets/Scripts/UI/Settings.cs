@@ -21,12 +21,17 @@ public class Settings : MonoBehaviour
 
         if (Input.GetKeyDown(escapeKey))
         {
-            Debug.Log("hit escape");
-            isActive = !isActive;
-            child.SetActive(isActive);
-            Cursor.visible = isActive;
-            Time.timeScale = isActive ? 0:1;
+            toggleSettings();
         }
+    }
+
+    public void toggleSettings()
+    {
+        Debug.Log("hit escape");
+        isActive = !isActive;
+        child.SetActive(isActive);
+        Cursor.visible = isActive;
+        Time.timeScale = isActive ? 0:1;
     }
 
     public void activateSettings()
