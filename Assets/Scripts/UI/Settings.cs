@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
+    [SerializeField] private GameObject loadMenu;
+    [SerializeField] private GameObject saveMenu;
     GameObject child;
     bool isActive = false;
 
@@ -28,6 +30,8 @@ public class Settings : MonoBehaviour
     public void toggleSettings()
     {
         Debug.Log("hit escape");
+        loadMenu.SetActive(false);
+        saveMenu.SetActive(false);
         isActive = !isActive;
         child.SetActive(isActive);
         Cursor.visible = isActive;
@@ -37,6 +41,8 @@ public class Settings : MonoBehaviour
     public void activateSettings()
     {
         Debug.Log("hit settings");
+        loadMenu.SetActive(false);
+        saveMenu.SetActive(false);
         isActive = true;
         child.SetActive(isActive);
         Cursor.visible = isActive;
