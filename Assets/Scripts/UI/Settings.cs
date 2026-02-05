@@ -34,7 +34,7 @@ public class Settings : MonoBehaviour
         saveMenu.SetActive(false);
         isActive = !isActive;
         child.SetActive(isActive);
-        Cursor.visible = isActive;
+        //Cursor.visible = isActive;
         Time.timeScale = isActive ? 0:1;
     }
 
@@ -45,7 +45,7 @@ public class Settings : MonoBehaviour
         saveMenu.SetActive(false);
         isActive = true;
         child.SetActive(isActive);
-        Cursor.visible = isActive;
+        //Cursor.visible = isActive;
         Time.timeScale = 0;
 
     }

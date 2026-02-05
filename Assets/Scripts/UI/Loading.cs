@@ -13,6 +13,7 @@ public class Loading : MonoBehaviour
     public void Load()
     {
         string path = Path.Combine(Application.persistentDataPath, "save-" + index + ".yaml");
+        Debug.Log("Path: " +  path);
 
         if (!File.Exists(path))
         {
@@ -40,7 +41,7 @@ public class Loading : MonoBehaviour
             SceneManager.LoadScene(data.sceneName);
             StartCoroutine(ApplyAfterSceneLoad(data));
             return;
-        }
+        }// should there be an else here or something?
 
         ApplyImmediately(data);
     }
@@ -48,11 +49,16 @@ public class Loading : MonoBehaviour
     private IEnumerator ApplyAfterSceneLoad(Saving.SaveData data)
     {
         yield return null;
+
         ApplyImmediately(data);
+
     }
 
     private void ApplyImmediately(Saving.SaveData data)
     {
+        // does this happen twice when on wrong scene?
+        Debug.Log("happened here");
+
         settings.toggleSettings();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = new Vector3(
@@ -74,6 +80,11 @@ public class Loading : MonoBehaviour
         PlayerController.lastMode = data.movementMode;
         PlayerController.curMode = data.movementMode;
         Act1GameManager.trackedInteractions = new Dictionary<string, bool>(data.act1Flags);
+
+        if (data.dialougeData.eventActive)
+        {
+            DialogueManager.runEventFrom(data.dialougeData.EventName, data.dialougeData.lineNum);
+        }
     }
 
     public int GetSaveIndex()

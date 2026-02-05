@@ -23,6 +23,8 @@ public class Saving : MonoBehaviour
         public string background;
         public PlayerController.movementMode movementMode;
         public Dictionary<string, bool> act1Flags;
+
+        public DialogueManager.DialougeData dialougeData;
     }
     
     [SerializeField] private Settings settings;
@@ -37,10 +39,12 @@ public class Saving : MonoBehaviour
     public void Save()
     {
         Debug.Log("Saving...");
-        
-        
-        Vector3 pos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        
+
+
+        //Vector3 pos = GameObject.FindGameObjectWithTag("Player").transform.position;
+        // Can just get direct link to player ref w/o needing to search scene for tag, might be a bit better for performance
+        Vector3 pos = PlayerController.getPlayerObject().transform.position;
+
         SaveData data = new SaveData
         {
             playerX = pos.x,
@@ -49,7 +53,11 @@ public class Saving : MonoBehaviour
             background = CameraController.GetBackground().name,
             sceneName = SceneManager.GetActiveScene().name,
             act1Flags = Act1GameManager.trackedInteractions,
-            movementMode = PlayerController.lastMode
+            movementMode = PlayerController.lastMode,
+
+            // need to add data for if in dialogue when saved to get back to that point in dialogue
+            // Event name and line num *should* be enough
+            dialougeData = DialogueManager.getDialougeData()
         };
         
         var serializer = new SerializerBuilder().Build();

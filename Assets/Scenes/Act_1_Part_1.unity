@@ -6459,7 +6459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   Emptychatbox: {fileID: 900439997}
   Emptyportrait: {fileID: 140280973}
-  SecondEmptyportrait: {fileID: 0}
+  SecondEmptyportrait: {fileID: 1438989872}
   textbox: {fileID: 1593160570}
   choiceButtonsParent: {fileID: 1380010879}
   EventsScriptableObject: {fileID: 11400000, guid: 1a199ae1f71dc7446901834318b518cc, type: 2}

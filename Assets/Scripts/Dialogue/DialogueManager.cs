@@ -74,6 +74,14 @@ public class DialogueManager : MonoBehaviour
     // defines where the camera should go depending on speaker
     static Dictionary<string, Vector2> camFocus;
 
+    // Dialouge save data
+    public struct DialougeData
+    {
+        public string EventName;
+        public int lineNum;
+        public bool eventActive;
+    }
+
     public static void addListener(dialogueFinishedListener listner)
     {
         listeners.Add(listner);
@@ -94,6 +102,16 @@ public class DialogueManager : MonoBehaviour
     public static void setCamFocus(Dictionary<string, Vector2> inputDict)
     {
         camFocus = new Dictionary<string, Vector2>(inputDict, System.StringComparer.OrdinalIgnoreCase);
+    }
+
+    public static DialougeData getDialougeData()
+    {
+        return new DialougeData()
+        {
+            EventName = dEventName,
+            lineNum = curLine,
+            eventActive = inEvent,
+        };
     }
 
     // do things on dEvent finished (mainly outside scripts added as listeners for this)
@@ -137,6 +155,26 @@ public class DialogueManager : MonoBehaviour
         lineSignal = -1;
         menu = null;
         eventRun(eventName);
+    }
+
+    public static void runEventFrom(string eventName, int startingLine) // Start from specified line number
+    {
+        lineSignal = -1;
+        menu = null;
+        dEventName = eventName;
+
+
+        PlayerController.freezeInput();
+
+        eventArr = dEvents.getEvents()[eventName];
+
+        chatbox.gameObject.SetActive(true);
+        portrait.gameObject.SetActive(true);
+        text.gameObject.SetActive(true);
+
+        curLine = startingLine;
+        runLine(startingLine);
+        inEvent = true;
     }
 
     public static void runEvent(string eventName, int lineSig, DialogueMenu dMenu) // Overload if using dialogue signal
