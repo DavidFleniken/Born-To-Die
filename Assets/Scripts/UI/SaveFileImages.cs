@@ -64,10 +64,6 @@ public class SaveFileImages : MonoBehaviour
         AssetDatabase.ImportAsset(path);
         Debug.Log($"Saved texture: {rt.width}x{rt.height} - " + path);
     }
-    [MenuItem("Assets/Take Screenshot", true)]
-    public bool TakeScreenshotValidation() =>
-        Selection.activeGameObject && Selection.activeGameObject.GetComponent<Camera>();
-    [MenuItem("Assets/Take Screenshot")]
     public void TakeScreenshot()
     {
         var prev = cam.targetTexture;
