@@ -18,6 +18,12 @@ public class CameraController : MonoBehaviour
     Camera cam;
     float height;
     float width;
+
+    // camera movement
+    static Vector2 target;
+    static bool hasTarget = false;
+    static float camSpeed = 5f;
+    static bool resetting = false;
     private void Start()
     {
         // singleton
@@ -83,9 +89,39 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // have camera follow player only horizontally
         Vector3 cameraPos = transform.position;
-        cameraPos.x = player.transform.position.x;
+        if (hasTarget) // going to target
+        {
+            // ignore rest of method, just have camera move to target
+            Vector3 targetPos = new Vector3(target.x, transform.position.y, transform.position.z);
+            cameraPos = Vector3.Lerp(
+                transform.position,
+                targetPos,
+                camSpeed * Time.deltaTime
+            );
+        }
+        else if (resetting) // returning to player
+        {
+            if (Mathf.Abs(target.x - transform.position.x) < 0.01f)
+            {
+                transform.position = new Vector2(player.transform.position.x, transform.position.y);
+                resetting = false;
+            }
+            else
+            {
+                Vector3 targetPos = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+                cameraPos = Vector3.Lerp(
+                    transform.position,
+                    targetPos,
+                    camSpeed * Time.deltaTime
+                );
+            }
+        }
+        else // just following player
+        {
+            // have camera follow player only horizontally
+            cameraPos.x = player.transform.position.x;
+        }
 
         if (activeBackground != null) // have camera stay within bounds
         {
@@ -93,7 +129,24 @@ public class CameraController : MonoBehaviour
                 activeBackground.transform.position.x - backgroundBounds + width/2, 
                 activeBackground.transform.position.x + backgroundBounds - width/2);
         }
+        else
+        {
+            Debug.LogError("No Background!!!");
+        }
 
         transform.position = cameraPos;
+    }
+
+    public static void moveTo(Vector2 tar)
+    {
+        hasTarget = true;
+        target = tar;
+    }
+
+    // resets camera from any moveTo call, having it return to the player
+    public static void resetCam()
+    {
+        hasTarget = false;
+        resetting = true;
     }
 }

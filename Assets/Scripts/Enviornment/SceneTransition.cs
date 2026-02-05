@@ -20,20 +20,23 @@ public class SceneTransition : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            //apply fade affect
-            fadeTime = Mathf.Abs(fadeTime);
-            curAlpha = 0;
-            fading = true;
-            PlayerController.pauseInput(fadeTime * 2);
-            player = col.gameObject;
-
-            anim = player.GetComponent<Animator>();
-            anim.SetFloat("X Velo", 0);
-            anim.SetFloat("Y Velo", 0);
-            anim.SetBool("isMoving", false);
-
-            
+            activate(col.gameObject);
         }
+    }
+
+    public void activate(GameObject player)
+    {
+        //apply fade affect
+        fadeTime = Mathf.Abs(fadeTime);
+        curAlpha = 0;
+        fading = true;
+        PlayerController.pauseInput(fadeTime * 2);
+        this.player = player;
+
+        anim = player.GetComponent<Animator>();
+        anim.SetFloat("X Velo", 0);
+        anim.SetFloat("Y Velo", 0);
+        anim.SetBool("isMoving", false);
     }
 
     private void teleportPlayer()

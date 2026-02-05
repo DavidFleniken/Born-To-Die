@@ -1,0 +1,426 @@
+{
+  "events": [
+    {
+      "name": "Test Event",
+      "lines": [
+        {
+          "text": "I LOVE CODING I LOVE CODING I LOVE CODING I LOV",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait2",
+          "choices": []
+        },
+        {
+          "text": "...",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "sorry about that",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": [
+            {
+              "text": "forgive",
+              "nextLine": 3,
+              "jumpTo": 5,
+              "choiceLines": 1
+            },
+            {
+              "text": "forget",
+              "nextLine": 4,
+              "jumpTo": 5,
+              "choiceLines": 1
+            }
+          ]
+        },
+        {
+          "text": "option 1",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "option 2",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "done",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Secondary Event",
+      "lines": [
+        {
+          "text": "test text",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        },
+        {
+          "text": "test text 2",
+          "chatbox": "testChatBoxImage",
+          "portrait": "testPortrait",
+          "choices": []
+        }
+      ]
+    },
+
+    {
+      "name": "Bed",
+      "lines": [
+        {
+          "text": "This is your bed. You sleep on it……NOTHING MORE.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Pictures",
+      "lines": [
+        {
+          "text": "Pictures of you, your friends, your family, your boyfriend, etc",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "Look through them?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 2,
+              "jumpTo": 999,
+              "choiceLines": 1
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        },
+        {
+          "text": "You flip through them.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Box 1",
+      "lines": [
+        {
+          "text": "CD’s. You like collecting them…a little too much. Burning them is your hobby.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Box 2",
+      "lines": [
+        {
+          "text": "Video games your brother left behind when he moved out for college.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "TV",
+      "lines": [
+        {
+          "text": "You and your friends watch movies and play video games on this TV, another thing your brother left behind when he moved out for college.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Mini Fridge",
+      "lines": [
+        {
+          "text": "A mini fridge. You keep drinks in there for when you or your friends get thirsty.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Drawer",
+      "lines": [
+        {
+          "text": "Open?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 99,
+              "jumpTo": 99,
+              "choiceLines": 0
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Box of Cigarettes",
+      "lines": [
+        {
+          "text": "You keep telling yourself you’ll quit, but ultimately see no point in doing so, you’re gonna die anyway.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "ID",
+      "lines": [
+      ]
+    },
+    {
+      "name": "Antidepressants",
+      "lines": [
+        {
+          "text": "They stopped working.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Photo",
+      "lines": [
+        {
+          "text": "This is your boyfriend, Vixen. Reminds you of a fox, doesn’t he?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    
+    {
+      "name": "Closet",
+      "lines": [
+        {
+          "text": "Open?",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": [
+            {
+              "text": "Yes",
+              "nextLine": 1,
+              "jumpTo": 999,
+              "choiceLines": 1
+            },
+            {
+              "text": "No",
+              "nextLine": 999,
+              "jumpTo": 999,
+              "choiceLines": 0
+            }
+          ]
+        },
+        {
+          "text": "Some of these clothes are from middle school. You wonder if they still fit, though you highly doubt it.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Trashbin",
+      "lines": [
+        {
+          "text": "It’s filled with crumpled up papers of lyrics you wrote for your band, and guitar chords…alongside normal trash too. Nothing useful.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Band Pickup",
+      "lines": [
+        {
+          "text": "Savannah, mija! Your little friends are here to pick you up for practice!",
+          "chatbox": "YULIANAChatbox",
+          "portrait": "YULIANABasic",
+          "choices": []
+        },
+        {
+          "text": "*Groan*",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": [
+            {
+              "text": "Tell them I died",
+              "nextLine": 2,
+              "jumpTo": 4,
+              "choiceLines": 2
+            },
+            {
+              "text": "Coming!",
+              "nextLine": 6,
+              "jumpTo": 7,
+              "choiceLines": 1
+            }
+          ]
+        },
+        {
+          "text": "Shit…uh- tell them I…..died",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "Be nice Savannah, now come up here and get out of the house for a bit",
+          "chatbox": "YULIANAChatbox",
+          "portrait": "YULIANABasic",
+          "choices": []
+        },
+        {
+          "text": "Ugh…okay mama..",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "Coming!",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "You and a coupleuction of high school friends formed a band together.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "It was always your dream to follow in your big brother's footsteps and try to be an amazing musician.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "It must be hard to be a musician when you're in college and have crippling stage fright though.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "You like to call this… carrying his legacy. He taught you almost everything you know about music after all.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "You’re the drummer and backup vocalist for the band. You prefer to play guitar but Coal has you beat — and he’s the main vocalist.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        },
+        {
+          "text": "Arabelle plays violin, which is weird for a rock band, but the poor girl can’t play anything else. Sprout is on bass.",
+          "chatbox": "Empty Chatbox",
+          "portrait": "None",
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Band Banter",
+      "lines": [
+        {
+          "text": "C’mon Xana, instruments don’t play themselves…unless ghosts can play them….do you think ghosts are real?",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "Well…",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "GHOSTS ARE REAL?!!",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "I didn’t even get to say anything!",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Let’s just go…wait where are the boys?",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "DEAD!",
+          "chatbox": "SPROUTChatbox",
+          "portrait": "SPROUTBasic",
+          "choices": []
+        },
+        {
+          "text": "Sprout! Stop it!!…Vixen said he’s going to run a little late today, family issues",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Family issues..?",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        },
+        {
+          "text": "B-But don’t worry! He said he’d 100% be there! And not to wait for him! Coal said he can’t make it though, bad migraine..",
+          "chatbox": "ARABELLEChatbox",
+          "portrait": "ARABELLEBasic",
+          "choices": []
+        },
+        {
+          "text": "Ah, poor dude, I’ll have to check on him at some point…alright well let’s go then",
+          "chatbox": "XANAChatbox",
+          "portrait": "XANABasic",
+          "choices": []
+        }
+      ]
+    }    
+  ]
+}

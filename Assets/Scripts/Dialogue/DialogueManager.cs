@@ -27,10 +27,14 @@ public class DialogueManager : MonoBehaviour
         public choice[] choices;
     }
 
+    public static string mainCharacter = "Xana";
+
     [SerializeField] SpriteRenderer Emptychatbox;
     static SpriteRenderer chatbox;
     [SerializeField] SpriteRenderer Emptyportrait;
     static SpriteRenderer portrait;
+    [SerializeField] SpriteRenderer SecondEmptyportrait;
+    static SpriteRenderer secondPortrait;
     [SerializeField] TMP_Text textbox;
     static TMP_Text text;
     [SerializeField] GameObject choiceButtonsParent;
@@ -51,6 +55,7 @@ public class DialogueManager : MonoBehaviour
     static int choiceLines = -1;
     static int jumpTo = 0;
     static bool inChoice = false;
+    static string dEventName;
 
     static Coroutine typingCoroutine;
     static bool isTyping = false;
@@ -66,17 +71,40 @@ public class DialogueManager : MonoBehaviour
     // listeners that do something when dialogue ended
     static List<dialogueFinishedListener> listeners = new List<dialogueFinishedListener>();
 
+    // defines where the camera should go depending on speaker
+    static Dictionary<string, Vector2> camFocus;
+
     public static void addListener(dialogueFinishedListener listner)
     {
         listeners.Add(listner);
     }
 
+    /*
+     * This may cause issues. Use "getLastEventName() to listen to specific events instead"
+    public static void removeListener(dialogueFinishedListener listener)
+    {
+        listeners.Remove(listener);
+    }
+    */
+    public static string getLastEventName()
+    {
+        return dEventName;
+    }
+
+    public static void setCamFocus(Dictionary<string, Vector2> inputDict)
+    {
+        camFocus = new Dictionary<string, Vector2>(inputDict, System.StringComparer.OrdinalIgnoreCase);
+    }
+
+    // do things on dEvent finished (mainly outside scripts added as listeners for this)
     private static void finishedListener()
     {
         foreach (dialogueFinishedListener listner in listeners)
         {
             listner.onFinished();
         }
+
+        camFocus = null;
     }
 
     private void Awake()
@@ -87,12 +115,14 @@ public class DialogueManager : MonoBehaviour
             dEvents = (EventRegion) EventsScriptableObject; // Error if given ScriptObj doesn't implement event region
             chatbox = Emptychatbox;
             portrait = Emptyportrait;
+            secondPortrait = SecondEmptyportrait;
             text = textbox;
             choiceButtons = choiceButtonsParent;
             textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
 
             chatbox.gameObject.SetActive(false);
             portrait.gameObject.SetActive(false);
+            secondPortrait.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
             choiceButtons.SetActive(false);
         }
@@ -111,6 +141,9 @@ public class DialogueManager : MonoBehaviour
 
     public static void runEvent(string eventName, int lineSig, DialogueMenu dMenu) // Overload if using dialogue signal
     {
+        // once reaches line number equal to line signal, will do things based on the inputted DialogueMenu
+        // line doesn't need to actually have a corresponded actual line of dialogue if it goes to the line through "jumpTo" 
+        // (which would normally just end the dialogue)
         lineSignal = lineSig;
         menu = dMenu;
         eventRun(eventName);
@@ -120,7 +153,8 @@ public class DialogueManager : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Confined;
         //Cursor.visible = true;
-        Act1GameManager.UpdateTrackedInteraction(eventName);
+
+        dEventName = eventName;
 
 
         PlayerController.freezeInput();
@@ -154,7 +188,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (choiceLines == 0)
         {
-            Debug.Log("jumped to " + jumpTo);
+            //Debug.Log("jumped to " + jumpTo);
             lineNum = jumpTo;
             choiceLines = -1;
         }
@@ -164,17 +198,42 @@ public class DialogueManager : MonoBehaviour
             inEvent = false;
             chatbox.gameObject.SetActive(false);
             portrait.gameObject.SetActive(false);
+            secondPortrait.gameObject.SetActive(false);
             text.gameObject.SetActive(false);
             curLine = 0;
             PlayerController.unfreezeInput();
             Debug.Log("FINISHED");
             finishedListener();
+            Act1GameManager.UpdateTrackedInteraction(dEventName);
             return;
         }
 
+        // NAMES FOR CHATBOXES MUST BE IN FORMAT: "[name]Chatbox" ELSE THIS BREAKS
+        // Im not proud of this solution. fix later (maybe)
+        string curName = eventArr[lineNum].chatbox.name.ToLower();
+        curName = curName.Length > 7 ? curName[..^7] : "";
+
+
         curLine = lineNum;
+        //camera stuff
+        if (camFocus != null && camFocus.ContainsKey(curName))
+        {
+           CameraController.moveTo(camFocus[curName]);
+        }
+
+        // Sprite and Chatbox
         chatbox.sprite = eventArr[lineNum].chatbox;
-        portrait.sprite = eventArr[lineNum].portrait;
+        // check if main character
+        if (curName == mainCharacter.ToLower())
+        {
+            portrait.sprite = eventArr[lineNum].portrait;
+        }
+        else
+        {
+            secondPortrait.gameObject.SetActive(true);
+            secondPortrait.sprite = eventArr[lineNum].portrait;
+        }
+
         //text.text = eventArr[lineNum].text;
         singleton.StartTyping(eventArr[lineNum].text);
 

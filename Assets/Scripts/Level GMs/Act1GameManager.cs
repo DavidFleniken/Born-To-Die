@@ -2,9 +2,10 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using System.Collections;
 
 
-public class Act1GameManager : MonoBehaviour
+public class Act1GameManager : MonoBehaviour, dialogueFinishedListener
 {
     [SerializeField] TMP_Text objectiveBox;
     [SerializeField] GameObject objectiveBackground;
@@ -19,6 +20,8 @@ public class Act1GameManager : MonoBehaviour
     static HashSet<string> keySet;
 
     static int numTracked = 0;
+
+    bool ranEvent1 = false;
 
     private void Start()
     {
@@ -37,7 +40,7 @@ public class Act1GameManager : MonoBehaviour
             trackedInteractions = new Dictionary<string, bool>();
 
             trackedInteractions.Add("Bed", false);
-            trackedInteractions.Add("Pictures", false);
+            /*trackedInteractions.Add("Pictures", false);
             trackedInteractions.Add("Box 1", false);
             trackedInteractions.Add("Box 2", false);
             trackedInteractions.Add("TV", false);
@@ -48,7 +51,7 @@ public class Act1GameManager : MonoBehaviour
             trackedInteractions.Add("Box of Cigarettes", false);
             trackedInteractions.Add("ID", false);
             trackedInteractions.Add("Antidepressants", false);
-            trackedInteractions.Add("Photo", false);
+            trackedInteractions.Add("Photo", false);*/
 
 
 
@@ -83,6 +86,34 @@ public class Act1GameManager : MonoBehaviour
                 objectiveBackground.transform.localPosition.x + (objTrans/objectiveTranslationTime)*Time.deltaTime, 
                 objectiveBackground.transform.localPosition.y);
         }
+
+        if (!ranEvent1 && numTracked == trackedInteractions.Count)
+        {
+            ranEvent1 = true;
+            Dictionary<string, Vector2> camTargets = new Dictionary<string, Vector2>();
+            camTargets.Add("Yuliana", new Vector2(15f, 0));
+            camTargets.Add("Xana", PlayerController.getPlayerPos());
+            DialogueManager.setCamFocus(camTargets);
+
+            DialogueManager.addListener(this);
+            DialogueManager.runEvent("Band Pickup");
+        }
+    }
+
+    public void onFinished()
+    {
+        // tp stuff
+        if (DialogueManager.getLastEventName() == "Band Pickup")
+        {
+            GetComponent<SceneTransition>().activate(PlayerController.getPlayerObject());
+            StartCoroutine(runBandBanter());
+        }
+    }
+
+    private IEnumerator runBandBanter()
+    {
+        yield return new WaitForSeconds(3);
+        DialogueManager.runEvent("Band Banter");
     }
 
     public static void activateObjective()
