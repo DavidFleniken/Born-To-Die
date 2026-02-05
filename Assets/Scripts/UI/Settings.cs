@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
+    [SerializeField] private GameObject loadMenu;
+    [SerializeField] private GameObject saveMenu;
     GameObject child;
     bool isActive = false;
 
@@ -21,17 +23,26 @@ public class Settings : MonoBehaviour
 
         if (Input.GetKeyDown(escapeKey))
         {
-            Debug.Log("hit escape");
-            isActive = !isActive;
-            child.SetActive(isActive);
-            Cursor.visible = isActive;
-            Time.timeScale = isActive ? 0:1;
+            toggleSettings();
         }
+    }
+
+    public void toggleSettings()
+    {
+        Debug.Log("hit escape");
+        loadMenu.SetActive(false);
+        saveMenu.SetActive(false);
+        isActive = !isActive;
+        child.SetActive(isActive);
+        Cursor.visible = isActive;
+        Time.timeScale = isActive ? 0:1;
     }
 
     public void activateSettings()
     {
         Debug.Log("hit settings");
+        loadMenu.SetActive(false);
+        saveMenu.SetActive(false);
         isActive = true;
         child.SetActive(isActive);
         Cursor.visible = isActive;

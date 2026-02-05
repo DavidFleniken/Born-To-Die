@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] GameObject player;
     [SerializeField] GameObject initialBackground; //optional - if defined prevents camera from going out of background bounds
-    static GameObject activeBackground;
+    [SerializeField] GameObject activeBackground;
     [SerializeField] Image blackout;
     static Image blackScreen;
     public static bool usingBlackscreen = false;
@@ -54,18 +54,24 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public static GameObject GetBackground()
+    {
+        return singleton.activeBackground;
+    }
     public static void SetBackground(GameObject bg)
     {
-        activeBackground = bg;
+        singleton.activeBackground = bg;
         backgroundBounds = bg.GetComponent<BoxCollider2D>().bounds.extents.x;
         
         singleton.transform.position = bg.transform.position;
+        singleton.transform.Translate(0, 0, -1);
+        setBlackScreenAlpha(0);
     }
 
     // overload for adding spawn position
     public static void SetBackground(GameObject bg, Vector3 spawnPos)
     {
-        activeBackground = bg;
+        singleton.activeBackground = bg;
         backgroundBounds = bg.GetComponent<BoxCollider2D>().bounds.extents.x;
 
         spawnPos.y = bg.transform.position.y;
