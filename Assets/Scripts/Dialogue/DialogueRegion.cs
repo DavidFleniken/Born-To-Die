@@ -6,6 +6,7 @@ using System;
 public interface EventRegion
 {
     public Dictionary<string, DialogueManager.dialogueLine[]> getEvents();
+    public string getAudioBasePath();
 }
 
 [CreateAssetMenu(fileName = "DialogueRegion", menuName = "Scriptable Objects/DialogueRegion")]
@@ -38,6 +39,11 @@ public class DialogueRegion : ScriptableObject, EventRegion
 
         return dEvents;
 
+    }
+
+    public string getAudioBasePath()
+    {
+        return $"Dialogue/{regionFolder}/Audio";
     }
 
     private void buildEvents()

@@ -357,6 +357,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartTyping(string fullText)
     {
+        AudioDialogue.playLine(dEvents.getAudioBasePath() + $"/{dEventName}/{curLine}");
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 

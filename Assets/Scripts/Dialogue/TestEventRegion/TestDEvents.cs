@@ -47,6 +47,11 @@ public class TestDEvents : ScriptableObject, EventRegion
         
     }
 
+    public string getAudioBasePath()
+    {
+        return "test";
+    }
+
     /* manual defs for events. 
     private void buildEventsManually()
     {
