@@ -24,7 +24,7 @@ public class Saving : MonoBehaviour
         public PlayerController.movementMode movementMode;
         public Dictionary<string, bool> act1Flags;
 
-        public DialogueManager.DialougeData dialougeData;
+        public DialogueManager.DialogueData dialogueData;
     }
     
     [SerializeField] private Settings settings;
@@ -57,7 +57,10 @@ public class Saving : MonoBehaviour
 
             // need to add data for if in dialogue when saved to get back to that point in dialogue
             // Event name and line num *should* be enough
-            dialougeData = DialogueManager.getDialougeData()
+            dialogueData = DialogueManager.getDialogueData()
+
+            // save ref ids
+            
         };
         
         var serializer = new SerializerBuilder().Build();

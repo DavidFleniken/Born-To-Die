@@ -7,6 +7,9 @@ public class DialogueMenu : MonoBehaviour, IInteractable, dialogueFinishedListen
     [SerializeField] GameObject[] subOverlays;
     [SerializeField] string[] subNames;
     [SerializeField] GameObject blocker; // blocks button inputs at certain moments
+    [SerializeField] string id = "";
+
+    static string activeMenuID;
 
     bool subOverlayOn = false;
     int activeOverlay;
@@ -20,11 +23,17 @@ public class DialogueMenu : MonoBehaviour, IInteractable, dialogueFinishedListen
         {
             dEventName = gameObject.name; // by default try to run event with gameobject name
         }
+        if (!string.IsNullOrEmpty(id))
+        {
+            Debug.Log("added id");
+            RefIDs.addRef(id, this.gameObject);
+        }
     }
 
     public void onInteract()
     {
         DialogueManager.runEvent(dEventName, 99, this);
+        
     }
 
     public GameObject getGameObject()
@@ -39,6 +48,8 @@ public class DialogueMenu : MonoBehaviour, IInteractable, dialogueFinishedListen
 
     public void onSignal()
     {
+        Debug.LogWarning("Signaled: " + id);
+        activeMenuID = id;
         overlay.SetActive(true);
         //Cursor.lockState = CursorLockMode.Confined;
         //Cursor.visible = true;
@@ -88,5 +99,12 @@ public class DialogueMenu : MonoBehaviour, IInteractable, dialogueFinishedListen
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
         PlayerController.setMode(PlayerController.movementMode.Normal);
+        activeMenuID = null;
     }
+
+    public static string getActiveMenu()
+    {
+        return activeMenuID;
+    }
+
 }

@@ -36,6 +36,7 @@ public class Settings : MonoBehaviour
         child.SetActive(isActive);
         //Cursor.visible = isActive;
         Time.timeScale = isActive ? 0:1;
+        DialogueManager.lockedInput = isActive;
     }
 
     public void activateSettings()
@@ -47,6 +48,7 @@ public class Settings : MonoBehaviour
         child.SetActive(isActive);
         //Cursor.visible = isActive;
         Time.timeScale = 0;
+        DialogueManager.lockedInput = true;
 
     }
 }

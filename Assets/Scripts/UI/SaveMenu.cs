@@ -22,6 +22,7 @@ public class SaveMenu : MonoBehaviour
             child.SetActive(isActive);
             Cursor.visible = isActive;
             Time.timeScale = isActive ? 0:1;
+            DialogueManager.lockedInput = isActive;
         }
     }
 
@@ -32,6 +33,7 @@ public class SaveMenu : MonoBehaviour
         child.SetActive(isActive);
         Cursor.visible = isActive;
         Time.timeScale = 0;
+        DialogueManager.lockedInput = false;
 
     }
 }

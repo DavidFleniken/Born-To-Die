@@ -81,9 +81,15 @@ public class Loading : MonoBehaviour
         PlayerController.curMode = data.movementMode;
         Act1GameManager.trackedInteractions = new Dictionary<string, bool>(data.act1Flags);
 
-        if (data.dialougeData.eventActive)
+        if (data.dialogueData.eventActive)
         {
-            DialogueManager.runEventFrom(data.dialougeData.EventName, data.dialougeData.lineNum);
+            DialogueManager.runEventFrom(data.dialogueData.EventName, data.dialogueData.lineNum);
+        }
+        if (!String.IsNullOrEmpty(data.dialogueData.activeMenuID))
+        {
+            //Debug.Log("Ran Menu");
+            var DM = RefIDs.getRef(data.dialogueData.activeMenuID).GetComponent<DialogueMenu>();
+            DM.onSignal();
         }
     }
 

@@ -74,12 +74,15 @@ public class DialogueManager : MonoBehaviour
     // defines where the camera should go depending on speaker
     static Dictionary<string, Vector2> camFocus;
 
+    public static bool lockedInput;
+
     // Dialouge save data
-    public struct DialougeData
+    public struct DialogueData
     {
         public string EventName;
         public int lineNum;
         public bool eventActive;
+        public string activeMenuID;
     }
 
     public static void addListener(dialogueFinishedListener listner)
@@ -104,13 +107,14 @@ public class DialogueManager : MonoBehaviour
         camFocus = new Dictionary<string, Vector2>(inputDict, System.StringComparer.OrdinalIgnoreCase);
     }
 
-    public static DialougeData getDialougeData()
+    public static DialogueData getDialogueData()
     {
-        return new DialougeData()
+        return new DialogueData()
         {
             EventName = dEventName,
             lineNum = curLine,
             eventActive = inEvent,
+            activeMenuID = DialogueMenu.getActiveMenu()
         };
     }
 
@@ -334,7 +338,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (inEvent)
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !inChoice)
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) && !inChoice && !lockedInput)
             {
                 if (!isTyping) runLine(curLine + 1);
                 else CompleteTextInstantly();
