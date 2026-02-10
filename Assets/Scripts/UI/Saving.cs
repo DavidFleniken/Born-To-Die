@@ -41,27 +41,28 @@ public class Saving : MonoBehaviour
         Debug.Log("Saving...");
 
 
-        //Vector3 pos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        // Can just get direct link to player ref w/o needing to search scene for tag, might be a bit better for performance
-        Vector3 pos = PlayerController.getPlayerObject().transform.position;
-
-        SaveData data = new SaveData
+        Vector3 pos = Vector3.zero;
+        if (PlayerController.exists())
         {
-            playerX = pos.x,
-            playerY = pos.y,
-            playerZ = pos.z,
-            background = CameraController.GetBackground().name,
-            sceneName = SceneManager.GetActiveScene().name,
-            act1Flags = Act1GameManager.trackedInteractions,
-            movementMode = PlayerController.lastMode,
+            pos = PlayerController.getPlayerObject().transform.position;
+        }
+            SaveData data = new SaveData
+            {
+                playerX = pos.x,
+                playerY = pos.y,
+                playerZ = pos.z,
+                background = CameraController.GetBackground().name,
+                sceneName = SceneManager.GetActiveScene().name,
+                act1Flags = Act1GameManager.trackedInteractions,
+                movementMode = PlayerController.lastMode,
 
-            // need to add data for if in dialogue when saved to get back to that point in dialogue
-            // Event name and line num *should* be enough
-            dialogueData = DialogueManager.getDialogueData()
+                // need to add data for if in dialogue when saved to get back to that point in dialogue
+                // Event name and line num *should* be enough
+                dialogueData = DialogueManager.getDialogueData()
 
-            // save ref ids
-            
-        };
+                // save ref ids
+
+            };
         
         var serializer = new SerializerBuilder().Build();
         

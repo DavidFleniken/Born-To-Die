@@ -262,6 +262,9 @@ public class DialogueManager : MonoBehaviour
         {
            CameraController.moveTo(camFocus[curName]);
         }
+        // Set defaults as blank
+        portrait.sprite = null;
+        secondPortrait.sprite = null;
 
         // Sprite and Chatbox
         chatbox.sprite = eventArr[lineNum].chatbox;

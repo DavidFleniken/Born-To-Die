@@ -8,7 +8,7 @@ public class SaveFileImages : MonoBehaviour
 {
     private Camera cam;
     private Button saveButton;
-    private int index;
+    [SerializeField] private int index;
     private TextMeshProUGUI text;
 
     private void Awake()
@@ -19,10 +19,6 @@ public class SaveFileImages : MonoBehaviour
         if (GetComponent<Saving>() != null)
         {
             index = GetComponent<Saving>().GetSaveIndex();
-        }
-        else
-        {
-            index = GetComponent<Loading>().GetSaveIndex();
         }
         
     }

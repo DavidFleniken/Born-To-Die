@@ -107,4 +107,9 @@ public class DialogueMenu : MonoBehaviour, IInteractable, dialogueFinishedListen
         return activeMenuID;
     }
 
+    public void manualBlocker(bool state)
+    {
+        blocker.SetActive(state);
+    }
+
 }

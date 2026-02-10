@@ -87,6 +87,7 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     private void Update()
     {
+        Debug.Log("time: " + Time.timeScale);
         Debug.Log("Move: " + curMode);
 
         anim.SetFloat("X Velo", 0);
@@ -188,6 +189,11 @@ public class PlayerController : MonoBehaviour, IInteractor
     public static GameObject getPlayerObject()
     {
         return singleton.gameObject;
+    }
+
+    public static bool exists()
+    {
+        return singleton != null;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

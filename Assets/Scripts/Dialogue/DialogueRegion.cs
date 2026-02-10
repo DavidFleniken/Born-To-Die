@@ -93,14 +93,17 @@ public class DialogueRegion : ScriptableObject, EventRegion
 
     private Sprite LoadSprite(string basePath, string spriteName)
     {
-        if (string.IsNullOrEmpty(spriteName))
+        if (string.IsNullOrEmpty(spriteName) ||spriteName == "None")
             return null;
 
         string path = $"{basePath}/Sprites/{spriteName}";
         Sprite s = Resources.Load<Sprite>(path);
 
-        if (s == null)
+        if (s == null && spriteName != "None")
+        {
             Debug.LogWarning($"Missing sprite at Resources/{path}");
+        }
+            
 
         return s;
     }

@@ -8,10 +8,18 @@ using YamlDotNet.Serialization;
 
 public class Loading : MonoBehaviour
 {
-    [SerializeField] private Settings settings;
-    [SerializeField] private int index;
-    public void Load()
+    private static Loading singleton;
+    private static Settings settings;
+    private static int index;
+
+    private void Awake()
     {
+        singleton = this;
+    }
+    public static void Load(int i)
+    {
+        settings = Settings.getInstance();
+        index = i;
         string path = Path.Combine(Application.persistentDataPath, "save-" + index + ".yaml");
         Debug.Log("Path: " +  path);
 
@@ -31,41 +39,53 @@ public class Loading : MonoBehaviour
 
         Debug.Log("Loaded save");
 
-        ApplySaveData(data);
+        singleton.ApplySaveData(data);
     }
 
     private void ApplySaveData(Saving.SaveData data)
     {
         if (SceneManager.GetActiveScene().name != data.sceneName)
         {
+            // temp prevent it from being destroyed
+            transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
             SceneManager.LoadScene(data.sceneName);
             StartCoroutine(ApplyAfterSceneLoad(data));
             return;
-        }// should there be an else here or something?
-
+        }
+        
         ApplyImmediately(data);
     }
 
     private IEnumerator ApplyAfterSceneLoad(Saving.SaveData data)
     {
+
         yield return null;
 
         ApplyImmediately(data);
 
+        yield return null;
+
+        // Manually destroy gameobject after it applied save data
+        Destroy(gameObject);
+
     }
 
-    private void ApplyImmediately(Saving.SaveData data)
+    private static void ApplyImmediately(Saving.SaveData data)
     {
-        // does this happen twice when on wrong scene?
-        Debug.Log("happened here");
+        settings = Settings.getInstance();
+        settings.deactivateSettings();
 
-        settings.toggleSettings();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = new Vector3(
-            data.playerX,
-            data.playerY,
-            data.playerZ
-        );
+        if (PlayerController.exists())
+        {
+            GameObject player = PlayerController.getPlayerObject();
+            player.transform.position = new Vector3(
+                data.playerX,
+                data.playerY,
+                data.playerZ
+            );
+        }
+        
         var bg = GameObject.Find(data.background);
 
         if (bg == null)
@@ -85,15 +105,16 @@ public class Loading : MonoBehaviour
         {
             DialogueManager.runEventFrom(data.dialogueData.EventName, data.dialogueData.lineNum);
         }
-        if (!String.IsNullOrEmpty(data.dialogueData.activeMenuID))
+        if (!string.IsNullOrEmpty(data.dialogueData.activeMenuID))
         {
-            //Debug.Log("Ran Menu");
+            Debug.Log("Ran Menu");
             var DM = RefIDs.getRef(data.dialogueData.activeMenuID).GetComponent<DialogueMenu>();
             DM.onSignal();
+            DM.manualBlocker(data.dialogueData.eventActive);
         }
     }
 
-    public int GetSaveIndex()
+    public static int GetSaveIndex()
     {
         return index;
     }
