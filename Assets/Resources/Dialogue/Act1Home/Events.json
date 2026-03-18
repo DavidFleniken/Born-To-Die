@@ -268,7 +268,7 @@
       ]
     },
     {
-      "name": "Band Pickup",
+      "name": "Scene 2 Part 1",
       "lines": [
         {
           "text": "Savannah, mija! Your little friends are here to pick you up for practice!",
@@ -358,7 +358,7 @@
       ]
     },
     {
-      "name": "Band Banter",
+      "name": "Scene 2 Part 2",
       "lines": [
         {
           "text": "C’mon Xana, instruments don’t play themselves…unless ghosts can play them….do you think ghosts are real?",
@@ -421,6 +421,801 @@
           "choices": []
         }
       ]
-    }    
+    },
+    {
+      "name": "Scene 3",
+      "lines": [
+        {
+          "text": "…",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpset", "None"],
+          "choices": []
+        },
+        {
+          "text": "Baby? You okay?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen"],
+          "choices": []
+        },
+        {
+          "text": "Uh…yeah…",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpsetOpen", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "You sure? You look upset about something",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen", "VixenUpset"],
+          "choices": []
+        },
+        {
+          "text": "I’ll tell you after practice.",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpsetOpen", "XanaAvert"],
+          "choices": []
+        },
+        {
+          "text": "Promise?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "VixenUpset"],
+          "choices": []
+        },
+        {
+          "text": "Yeah..",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpsetOpen", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "Alright so uh…I got some new lyrics, let me know what you guys think",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen"],
+          "choices": []
+        },
+        {
+          "text": "The group carefully looks over your lyrics, each of their expressions change slowly the further they read down",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Uhm..",
+          "chatbox": "ARABELLEChatbox",
+          "portraits": ["ArabelleWorry"],
+          "choices": []
+        },
+        {
+          "text": "Mmh..",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenConcerned"],
+          "choices": []
+        },
+        {
+          "text": "Wow…..this sucks ass",
+          "chatbox": "SPROUTChatbox",
+          "portraits": ["SproutDefaultOpen"],
+          "choices": []
+        },
+        {
+          "text": "UGHHH!! I KNOW!!!",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2"],
+          "choices": []
+        },
+        {
+          "text": "Look, babe, it’s…good, it’s just….so….dry",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenConcernedOpen", "ArabelleWorry", "XanaGuilty", "SproutDefault"],
+          "choices": []
+        },
+        {
+          "text": "Some of these lyrics…they don’t really make sense…",
+          "chatbox": "ARABELLEChatbox",
+          "portraits": ["VixenConcerned", "ArabelleWorryOpen", "XanaGuilty", "SproutDefault"],
+          "choices": []
+        },
+        {
+          "text": "Were you half asleep when you wrote this?",
+          "chatbox": "SPROUTChatbox",
+          "portraits": ["SproutReallyOpen", "VixenUpset", "ArabelleHorrified", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "Sprout!!",
+          "chatbox": "ARABELLEChatbox",
+          "portraits": ["ArabelleHorrified", "XanaAngry", "SproutFear", "VixenPissed"],
+          "choices": []
+        },
+        {
+          "text": "What?! I’m just asking!",
+          "chatbox": "SPROUTChatbox",
+          "portraits": ["ArabelleHorrified", "XanaAngry", "SproutWhineOpen", "VixenPissed"],
+          "choices": []
+        },
+        {
+          "text": "…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuilty", "SproutWhineOpen", "VixenPissed", "ArabelleHorrified"],
+          "choices": []
+        },
+        {
+          "text": "No..Xana I didn’t mean-…I just meant it needs improvement. Sorry, I shouldn’t have been so blunt",
+          "chatbox": "SPROUTChatbox",
+          "portraits": ["XanaGuilty", "SproutWorry"],
+          "choices": []
+        },
+        {
+          "text": "(Sigh) No, no…it’s fine…you’re right, this does suck..",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen"],
+          "choices": []
+        },
+        {
+          "text": "It’s fine, we’ll just play Sprout’s song until you can workshop your lyrics more, okay?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenDefaultOpen", "XanaAvert"],
+          "choices": []
+        },
+        {
+          "text": "Yeah, sounds good, hand over the lyrics?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen"],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Scene 4",
+      "lines": [
+        {
+          "text": "Hey, so what’s up?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaDefaultOpenV2", "VixenUpset"],
+          "choices": []
+        },
+        {
+          "text": "Ugh…it’s stupid, just…me and my mom got into another fight. I think she’s going to kick me out soon",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpsetOpen", "XanaDefaultV2"],
+          "choices": []
+        },
+        {
+          "text": "You serious?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["VixenUpset", "XanaWTF"],
+          "choices": []
+        },
+        {
+          "text": "Yeah, she seems pretty serious about it now, honestly I don’t really care though.",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenSpeak", "XanaDefaultV2"],
+          "choices": []
+        },
+        {
+          "text": "Living in the woods would be cool as fuck, I can catch fish with my bare hands and piss on trees n shit. Nobody will be able to tell me what to do, it’ll be awesome!",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenProud", "XanaDefaultV2"],
+          "choices": []
+        },
+        {
+          "text": "You do all of that already",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen", "VixenSmile"],
+          "choices": []
+        },
+        {
+          "text": "I’m just tired of my mom. Ever since dad died she’s been such a bitch about my “interests” So what if I wear fur and piss on trees? Why is that such a big problem to her?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenAngry", "XanaAvert"],
+          "choices": []
+        },
+        {
+          "text": "(Snicker) You’re stupid",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaLaugh", "VixenSmile"],
+          "choices": []
+        },
+        {
+          "text": "(Chuckle) Says you, battery acid addict",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenProud", "XanaLaugh"],
+          "choices": []
+        },
+        {
+          "text": "Hey! Battery acid is amazing",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaLaugh", "VixenSmile"],
+          "choices": []
+        },
+        {
+          "text": "No…no it isn’t.",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenSkepticalOpen", "XanaLaugh"],
+          "choices": []
+        },
+        {
+          "text": "Not my fault you pussied out and puked it up",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen", "VixenUpset"],
+          "choices": []
+        },
+        {
+          "text": "Actually, it literally fucking is",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenAngry", "XanaChill"],
+          "choices": []
+        },
+        {
+          "text": "(Laugh) You’re such a baby",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaLaugh", "VixenSkeptical"],
+          "choices": []
+        },
+        {
+          "text": "How do you drink that stuff all the time?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenSkepticalOpen", "XanaChill"],
+          "choices": []
+        },
+        {
+          "text": "Dunno, I’ve always loved sour candy ever since I was a kid, guess I built up a tolerance for it",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen", "VixenSkeptical"],
+          "choices": []
+        },
+        {
+          "text": "That’s insane, you’d eat citric acid straight if you could, wouldn’t you?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenSkepticalOpen", "XanaSmileV2"],
+          "choices": []
+        },
+        {
+          "text": "Absolutely",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaSmileOpenV2", "VixenSkeptical"],
+          "choices": []
+        },
+        {
+          "text": "Disgusting",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenUpsetOpen", "XanaSmileV2"],
+          "choices": []
+        },
+        {
+          "text": "Says you, when was the last time you showered?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaTeaseOpenV2", "VixenDefault"],
+          "choices": []
+        },
+        {
+          "text": "It wasn’t even that long ago!! I showered like…last week",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenNervousArmsOut", "XanaWTFV2"],
+          "choices": []
+        },
+        {
+          "text": "(Fake gag)",
+          "chatbox": "Empty Chatbox",
+          "portraits": ["XanaGag", "VixenNervousArmsOut"],
+          "choices": []
+        },
+        {
+          "text": "SHUT YOUR MOUTH!!",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenRageArmsOutOpen", "XanaGag"],
+          "choices": []
+        },
+        {
+          "text": "You’re lucky I love you",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaPleasedOpen", "VixenRage"],
+          "choices": []
+        },
+        {
+          "text": "Yep…you wanna go out sometime this week?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenDefaultOpen", "XanaPleased"],
+          "choices": []
+        },
+        {
+          "text": "Yeah, of course",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaSmileOpenV2", "VixenSmile"],
+          "choices": []
+        },
+        {
+          "text": "Cool, I’ll text you when, okay?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenProud", "XanaPleased"],
+          "choices": []
+        },
+        {
+          "text": "Sounds good, see you then",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaBlushOpen"],
+          "choices": []
+        },
+        {
+          "text": "(kiss) I love you",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaBlushOpen", "VixenBlush"],
+          "choices": []
+        },
+        {
+          "text": "I love you too, Sav",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenBlushOpen", "XanaBlush"],
+          "choices": []
+        },
+        {
+          "text": "Text me when you get home",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaBlushOpen", "VixenBlush"],
+          "choices": []
+        },
+        {
+          "text": "Mhm",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenBlush", "XanaBlush"],
+          "choices": []
+        },
+        {
+          "text": "You go home with a lot on your mind. Mostly thinking about your lyrics and how horrible they were. You start to ask yourself if you should even be the lyricist at all. Clearly Sprout wrote better lyrics than you, you don’t understand why the group insists on you doing it so bad, it all ends up trashed as scraps anyway.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Scene 5",
+      "lines": [
+        {
+          "text": "You suddenly have this weird, strong urge to call your brother",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Hey Sav, what’s up?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioSmileOpen", "XanaAvert"],
+          "choices": []
+        },
+        {
+          "text": "Hey, what are you doing right now?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpen", "JulioDefault"],
+          "choices": []
+        },
+        {
+          "text": "Ugh…homework, what about you? Staying out of trouble?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioEyeroll", "XanaAvert"],
+          "choices": []
+        },
+        {
+          "text": "Ugh…as much as I can..",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioDefault"],
+          "choices": []
+        },
+        {
+          "text": "Something happening? You know you can tell me anything",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioConcerned", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "Just…everything I write is garbage, they said my lyrics were dry and I don’t know what to do…I’m starting to think being a musician isn’t my calling after all..",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioUpset"],
+          "choices": []
+        },
+        {
+          "text": "Hey, don’t say that, you have lots of talent and you put it to good use. You're having uh…writers block I think. It’s really no big deal sis, it’s an easy fix. You don’t gotta quit over it",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioReassureOpen", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "Yeah well I’ve been in writer's block for weeks now! Every week they give me the same look I-….",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioNervous"],
+          "choices": []
+        },
+        {
+          "text": "(sigh)",
+          "chatbox": "Empty Chatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioNervous"],
+          "choices": []
+        },
+        {
+          "text": "When’s the next time you’ll be able to come over?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioNervous"],
+          "choices": []
+        },
+        {
+          "text": "Ah..I don’t know Sav, I’m really flooded this semester. I’m exhausted and stressed out and honestly I just really wanna throw myself into a microwave..",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioUpsetOpen", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "To heat up?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaDefaultOpenV2", "JulioUpset"],
+          "choices": []
+        },
+        {
+          "text": "To explode.",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioEyeroll", "XanaDefaultV2"],
+          "choices": []
+        },
+        {
+          "text": "Ugh, you’re so dramatic",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaTeaseOpenV2", "JulioDeadpan"],
+          "choices": []
+        },
+        {
+          "text": "Yeah well you try being a full time college student with no job",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioEyeroll", "XanaTeaseV2"],
+          "choices": []
+        },
+        {
+          "text": "It can’t be that bad",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaTeaseOpenV2", "JulioSkeptical"],
+          "choices": []
+        },
+        {
+          "text": "Savannah I will strangle you over this phone I swear",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaTeaseV2"],
+          "choices": []
+        },
+        {
+          "text": "See how far that gets you",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaTeaseOpenV2", "JulioDeadpan"],
+          "choices": []
+        },
+        {
+          "text": "Anyways….anything else you wanna talk about?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioEyeroll", "XanaTeaseV2"],
+          "choices": []
+        },
+        {
+          "text": "How do you get over writer's block?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaDefaultOpenV2", "JulioDefault"],
+          "choices": []
+        },
+        {
+          "text": "Hell if I know",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioSpeak", "XanaGrumpyV2"],
+          "choices": []
+        },
+        {
+          "text": "What?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGrumpyOpenV2", "JulioDefault"],
+          "choices": []
+        },
+        {
+          "text": "Writer’s block is something that comes and goes on its own, the best you can do is try to look somewhere for inspiration but even that’s not a guarantee all the time, at that point you just gotta wait for something to come to you",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioSpeak", "XanaAngry"],
+          "choices": []
+        },
+        {
+          "text": "That’s not helpful at all!! you suck man..",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioUpset"],
+          "choices": []
+        },
+        {
+          "text": "Sav, I’m busy",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioConcerned", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "You’re always busy, can you please help me for once??",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "Can you watch your attitude? I’m trying to multitask here, I’m doing my best",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaAngryV2"],
+          "choices": []
+        },
+        {
+          "text": "Can’t believe someone majoring in music can’t tell me how to write lyrics AND has crippling stage fright",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaPoutOpenV2", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "Stop.",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaPoutV2"],
+          "choices": []
+        },
+        {
+          "text": "How are you going to be a musician if you can’t perform in front of your family at least? You gotta get over your fear at some point-",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioAngry"],
+          "choices": [
+            {
+              "text": "Keep talking.",
+              "nextLine": 30,
+              "choiceLines": 17,
+              "jumpTo": 999
+            },
+            {
+              "text": "Stop.",
+              "nextLine": 47,
+              "choiceLines": 12,
+              "jumpTo": 999
+            }
+          ]
+        },
+        {
+          "text": "You taught me everything I know and for some reason I’m living YOUR dream right now! What are you even there for if I’m just doing all the work??",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "You’re not living my dream Savannah...",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaAngryV2"],
+          "choices": []
+        },
+        {
+          "text": "You want to be a soloist but you can’t even play for a small crowd...",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaPoutOpenV2", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "I’m TRYING",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaPoutV2"],
+          "choices": []
+        },
+        {
+          "text": "You’re not TRYING hard enough!!",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "Stop it- stop it- just stop Talking!! I don’t need this right now!",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaFurious"],
+          "choices": []
+        },
+        {
+          "text": "Just HELP me Juli!! My lyrics are dry...",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaShock", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "Why are you acting like such a fucking brat, Savannah??",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaFurious"],
+          "choices": []
+        },
+        {
+          "text": "…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaStunned", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "What do you want me to tell you, Savannah..?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaStunned"],
+          "choices": []
+        },
+        {
+          "text": "…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaStunned", "JulioAngry"],
+          "choices": []
+        },
+        {
+          "text": "Sav?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioConcerned", "XanaStunned"],
+          "choices": []
+        },
+        {
+          "text": "…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaStunned", "JulioNervous"],
+          "choices": []
+        },
+        {
+          "text": "Ah shit…no- please don’t shut down on me...",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioConcerned", "XanaStunned"],
+          "choices": []
+        },
+        {
+          "text": "…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaStunned", "JulioConcerned"],
+          "choices": []
+        },
+        {
+          "text": "Sav I know you’re still there...",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioUpsetOpen", "XanaTears"],
+          "choices": []
+        },
+        {
+          "text": "Boop",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I’m…sorry, I’m just…frustrated…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioUpset"],
+          "choices": []
+        },
+        {
+          "text": "I know Sav, but….please..",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioUpsetOpen", "XanaGuilty"],
+          "choices": []
+        },
+        {
+          "text": "You're right, let’s stop talking about it…",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGuiltyOpen", "JulioUpset"],
+          "choices": []
+        },
+        {
+          "text": ".meet any college girls yet?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaChillOpen", "JulioNervous"],
+          "choices": []
+        },
+        {
+          "text": "(Cutscene Plays)",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Seriously??",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioHeavyBlush"],
+          "choices": []
+        },
+        {
+          "text": "Well have YOU met any BOYS?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDisgusted", "XanaStunned"],
+          "choices": []
+        },
+        {
+          "text": "(Cutscene Plays)",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "You’re kidding",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioSkeptical", "XanaPoutV2"],
+          "choices": []
+        },
+        {
+          "text": "Hey, you’re 22 already that makes you more pathetic!",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAngryOpenV2", "JulioDeadpan"],
+          "choices": []
+        },
+        {
+          "text": "Uh huh…well anyway, I really gotta get back to this sis so I’m gonna let you go okay?",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioAsk", "XanaSmileV2"],
+          "choices": []
+        },
+        {
+          "text": "Oh, yeah, sure, talk to you tomorrow",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaSmileOpenV2", "JulioSmile"],
+          "choices": []
+        },
+        {
+          "text": "Alright, love you",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioReassureOpen", "XanaSmileV2"],
+          "choices": []
+        },
+        {
+          "text": "Ugh…love you too..",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaGag", "JulioDefault"],
+          "choices": []
+        },
+        {
+          "text": "I’ll take it",
+          "chatbox": "JULIOChatbox",
+          "portraits": ["JulioDeadpan", "XanaChill"],
+          "choices": []
+        }
+      ]
+    },
+    {
+      "name": "Scene 8",
+      "lines": [
+        {
+          "text": "(Feral eating noises)",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["None", "XanaWTF"],
+          "choices": []
+        },
+        {
+          "text": "(Chuckle) You’re so gross",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaLaugh", "None"],
+          "choices": []
+        },
+        {
+          "text": "(Burp) Huh?",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenDefaultOpen", "XanaLaugh"],
+          "choices": []
+        },
+        {
+          "text": "Can I go back to sleep now?",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaChillOpen", "VixenDefault"],
+          "choices": []
+        },
+        {
+          "text": "Sure",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenProud", "XanaChill"],
+          "choices": []
+        },
+        {
+          "text": "If you wanna cuddle so bad just say that",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaPleasedOpen", "VixenSmile"],
+          "choices": []
+        },
+        {
+          "text": "No",
+          "chatbox": "VIXENChatbox",
+          "portraits": ["VixenDefaultOpen", "XanaDefaultV2"],
+          "choices": []
+        },
+        {
+          "text": "Okay",
+          "chatbox": "XANAChatbox",
+          "portraits": ["XanaAvertOpenV2"],
+          "choices": []
+        }
+      ]
+    }
   ]
 }

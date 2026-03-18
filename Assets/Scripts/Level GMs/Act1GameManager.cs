@@ -96,24 +96,24 @@ public class Act1GameManager : MonoBehaviour, dialogueFinishedListener
             DialogueManager.setCamFocus(camTargets);
 
             DialogueManager.addListener(this);
-            DialogueManager.runEvent("Band Pickup");
+            DialogueManager.runEvent("Scene 2 Part 1");
         }
     }
 
     public void onFinished()
     {
         // tp stuff
-        if (DialogueManager.getLastEventName() == "Band Pickup")
+        if (DialogueManager.getLastEventName() == "Scene 2 Part 1")
         {
             GetComponent<SceneTransition>().activate(PlayerController.getPlayerObject());
-            StartCoroutine(runBandBanter());
+            StartCoroutine(runS2P2());
         }
     }
 
-    private IEnumerator runBandBanter()
+    private IEnumerator runS2P2()
     {
         yield return new WaitForSeconds(3);
-        DialogueManager.runEvent("Band Banter");
+        DialogueManager.runEvent("Scene 2 Part 2");
     }
 
     public static void activateObjective()
