@@ -12,6 +12,8 @@ public interface dialogueFinishedListener
 public class DialogueManager : MonoBehaviour
 {
     [System.Serializable]
+
+    #region Dialogue Data Structs
     public struct choice
     {
         public string text;
@@ -23,26 +25,36 @@ public class DialogueManager : MonoBehaviour
     {
         public string text;
         public Sprite chatbox;
-        public Sprite portrait;
+        public Sprite[] portraits;
         public choice[] choices;
     }
 
-    public static string mainCharacter = "Xana";
+    // Dialouge save data
+    public struct DialogueData
+    {
+        public string EventName;
+        public int lineNum;
+        public bool eventActive;
+        public string activeMenuID;
+    }
 
+    #endregion
+
+
+    #region Serialized Fields
     [SerializeField] SpriteRenderer Emptychatbox;
     static SpriteRenderer chatbox;
-    [SerializeField] SpriteRenderer Emptyportrait;
-    static SpriteRenderer portrait;
-    [SerializeField] SpriteRenderer SecondEmptyportrait;
-    static SpriteRenderer secondPortrait;
+    [SerializeField] SpriteRenderer[] Emptyportraits;
+    static SpriteRenderer[] portraitRenderers;
     [SerializeField] TMP_Text textbox;
     static TMP_Text text;
     [SerializeField] GameObject choiceButtonsParent;
     static GameObject choiceButtons;
-
     [SerializeField] ScriptableObject EventsScriptableObject;
     static EventRegion dEvents;
+    #endregion
 
+    #region Instance Vars
     public static float textSpeed = 0.05f;
     static TMP_Text[] textArr;
 
@@ -76,27 +88,27 @@ public class DialogueManager : MonoBehaviour
 
     public static bool lockedInput;
 
-    // Dialouge save data
-    public struct DialogueData
-    {
-        public string EventName;
-        public int lineNum;
-        public bool eventActive;
-        public string activeMenuID;
-    }
+    #endregion
 
+    #region Dialogue Finished Listener Methods
     public static void addListener(dialogueFinishedListener listner)
     {
         listeners.Add(listner);
     }
 
-    /*
-     * This may cause issues. Use "getLastEventName() to listen to specific events instead"
-    public static void removeListener(dialogueFinishedListener listener)
+    // do things on dEvent finished (mainly outside scripts added as listeners for this)
+    private static void finishedListener()
     {
-        listeners.Remove(listener);
+        foreach (dialogueFinishedListener listner in listeners)
+        {
+            listner.onFinished();
+        }
+
+        camFocus = null;
     }
-    */
+    #endregion
+
+    #region Getter/Setter Methods
     public static string getLastEventName()
     {
         return dEventName;
@@ -118,16 +130,7 @@ public class DialogueManager : MonoBehaviour
         };
     }
 
-    // do things on dEvent finished (mainly outside scripts added as listeners for this)
-    private static void finishedListener()
-    {
-        foreach (dialogueFinishedListener listner in listeners)
-        {
-            listner.onFinished();
-        }
-
-        camFocus = null;
-    }
+    #endregion
 
     private void Awake()
     {
@@ -136,15 +139,16 @@ public class DialogueManager : MonoBehaviour
             singleton = this;
             dEvents = (EventRegion) EventsScriptableObject; // Error if given ScriptObj doesn't implement event region
             chatbox = Emptychatbox;
-            portrait = Emptyportrait;
-            secondPortrait = SecondEmptyportrait;
+            portraitRenderers = Emptyportraits;
             text = textbox;
             choiceButtons = choiceButtonsParent;
             textArr = choiceButtons.GetComponentsInChildren<TMP_Text>();
 
             chatbox.gameObject.SetActive(false);
-            portrait.gameObject.SetActive(false);
-            secondPortrait.gameObject.SetActive(false);
+            foreach(SpriteRenderer sr in portraitRenderers)
+            {
+                sr.gameObject.SetActive(false);
+            }
             text.gameObject.SetActive(false);
             choiceButtons.SetActive(false);
         }
@@ -154,6 +158,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    #region Event Running
     public static void runEvent(string eventName) // Not using signal
     {
         lineSignal = -1;
@@ -173,7 +178,10 @@ public class DialogueManager : MonoBehaviour
         eventArr = dEvents.getEvents()[eventName];
 
         chatbox.gameObject.SetActive(true);
-        portrait.gameObject.SetActive(true);
+        foreach (SpriteRenderer sr in portraitRenderers)
+        {
+            sr.gameObject.SetActive(true);
+        }
         text.gameObject.SetActive(true);
 
         curLine = startingLine;
@@ -204,7 +212,10 @@ public class DialogueManager : MonoBehaviour
         eventArr = dEvents.getEvents()[eventName];
 
         chatbox.gameObject.SetActive(true);
-        portrait.gameObject.SetActive(true);
+        foreach (SpriteRenderer sr in portraitRenderers)
+        {
+            sr.gameObject.SetActive(true);
+        }
         text.gameObject.SetActive(true);
 
         curLine = 0;
@@ -239,8 +250,10 @@ public class DialogueManager : MonoBehaviour
         {
             inEvent = false;
             chatbox.gameObject.SetActive(false);
-            portrait.gameObject.SetActive(false);
-            secondPortrait.gameObject.SetActive(false);
+            foreach (SpriteRenderer sr in portraitRenderers)
+            {
+                sr.gameObject.SetActive(false);
+            }
             text.gameObject.SetActive(false);
             curLine = 0;
             PlayerController.unfreezeInput();
@@ -252,32 +265,46 @@ public class DialogueManager : MonoBehaviour
 
         // NAMES FOR CHATBOXES MUST BE IN FORMAT: "[name]Chatbox" ELSE THIS BREAKS
         // Im not proud of this solution. fix later (maybe)
-        string curName = eventArr[lineNum].chatbox.name.ToLower();
-        curName = curName.Length > 7 ? curName[..^7] : "";
+        string curName = "";
+        if (eventArr[lineNum].chatbox != null)
+        {
+            curName = eventArr[lineNum].chatbox.name.ToLower();
+            curName = curName.Length > 7 ? curName[..^7] : "";
+        }
+        
 
 
         curLine = lineNum;
         //camera stuff
         if (camFocus != null && camFocus.ContainsKey(curName))
         {
-           CameraController.moveTo(camFocus[curName]);
+            CameraController.moveTo(camFocus[curName]);
         }
-        // Set defaults as blank
-        portrait.sprite = null;
-        secondPortrait.sprite = null;
 
+        { 
+            int i = 0;
+            foreach (SpriteRenderer sr in portraitRenderers)
+            {
+                if (i < eventArr[lineNum].portraits.Length)
+                {
+                    var curSprite = eventArr[lineNum].portraits[i];
+                    
+                    //Debug.Log($"Made {sr.name} {curSprite.name}");
+                    sr.sprite = curSprite;
+                }
+                else
+                {
+                    sr.sprite = null;
+                    //Debug.Log($"Made {sr.name} null");
+                }
+
+
+                    i++;
+            }
+        }
         // Sprite and Chatbox
         chatbox.sprite = eventArr[lineNum].chatbox;
-        // check if main character
-        if (curName == mainCharacter.ToLower())
-        {
-            portrait.sprite = eventArr[lineNum].portrait;
-        }
-        else
-        {
-            secondPortrait.gameObject.SetActive(true);
-            secondPortrait.sprite = eventArr[lineNum].portrait;
-        }
+
 
         //text.text = eventArr[lineNum].text;
         singleton.StartTyping(eventArr[lineNum].text);
@@ -387,4 +414,7 @@ public class DialogueManager : MonoBehaviour
         text.text = currentFullText;
         isTyping = false;
     }
+
+    #endregion
 }
+

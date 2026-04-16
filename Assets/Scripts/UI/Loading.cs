@@ -30,7 +30,7 @@ public class Loading : MonoBehaviour
         }
         
         string yaml = File.ReadAllText(path);
-        
+
         var deserializer = new DeserializerBuilder()
             .IgnoreUnmatchedProperties()
             .Build();

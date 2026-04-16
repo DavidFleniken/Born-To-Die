@@ -6,19 +6,19 @@
         {
           "text": "I LOVE CODING I LOVE CODING I LOVE CODING I LOV",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait2",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "...",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "sorry about that",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": [
             {
               "text": "forgive",
@@ -37,19 +37,19 @@
         {
           "text": "option 1",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "option 2",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "done",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         }
       ]
@@ -60,25 +60,24 @@
         {
           "text": "test text",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "test text 2",
           "chatbox": "testChatBoxImage",
-          "portrait": "testPortrait",
+          "portraits": [],
           "choices": []
         }
       ]
     },
-
     {
       "name": "Bed",
       "lines": [
         {
           "text": "This is your bed. You sleep on it……NOTHING MORE.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -89,13 +88,13 @@
         {
           "text": "Pictures of you, your friends, your family, your boyfriend, etc",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "Look through them?",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": [
             {
               "text": "Yes",
@@ -114,7 +113,7 @@
         {
           "text": "You flip through them.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -125,7 +124,7 @@
         {
           "text": "CD’s. You like collecting them…a little too much. Burning them is your hobby.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -136,7 +135,7 @@
         {
           "text": "Video games your brother left behind when he moved out for college.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -147,7 +146,7 @@
         {
           "text": "You and your friends watch movies and play video games on this TV, another thing your brother left behind when he moved out for college.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -158,7 +157,7 @@
         {
           "text": "A mini fridge. You keep drinks in there for when you or your friends get thirsty.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -169,7 +168,7 @@
         {
           "text": "Open?",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": [
             {
               "text": "Yes",
@@ -193,15 +192,14 @@
         {
           "text": "You keep telling yourself you’ll quit, but ultimately see no point in doing so, you’re gonna die anyway.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
     },
     {
       "name": "ID",
-      "lines": [
-      ]
+      "lines": []
     },
     {
       "name": "Antidepressants",
@@ -209,7 +207,7 @@
         {
           "text": "They stopped working.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -220,19 +218,18 @@
         {
           "text": "This is your boyfriend, Vixen. Reminds you of a fox, doesn’t he?",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
     },
-    
     {
       "name": "Closet",
       "lines": [
         {
           "text": "Open?",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": [
             {
               "text": "Yes",
@@ -251,7 +248,7 @@
         {
           "text": "Some of these clothes are from middle school. You wonder if they still fit, though you highly doubt it.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -262,7 +259,7 @@
         {
           "text": "It’s filled with crumpled up papers of lyrics you wrote for your band, and guitar chords…alongside normal trash too. Nothing useful.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -273,13 +270,13 @@
         {
           "text": "Savannah, mija! Your little friends are here to pick you up for practice!",
           "chatbox": "YULIANAChatbox",
-          "portrait": "YULIANABasic",
+          "portraits": [],
           "choices": []
         },
         {
-          "text": "*Groan*",
-          "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "text": "",
+          "chatbox": "None",
+          "portraits": ["Xana Grumpy Open (v2)"],
           "choices": [
             {
               "text": "Tell them I died",
@@ -298,61 +295,61 @@
         {
           "text": "Shit…uh- tell them I…..died",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["Xana Shock"],
           "choices": []
         },
         {
           "text": "Be nice Savannah, now come up here and get out of the house for a bit",
           "chatbox": "YULIANAChatbox",
-          "portrait": "YULIANABasic",
+          "portraits": [],
           "choices": []
         },
         {
           "text": "Ugh…okay mama..",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["Xana Grumpy Open (v2)"],
           "choices": []
         },
         {
           "text": "Coming!",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["XANA Default Open (v2)"],
           "choices": []
         },
         {
           "text": "You and a coupleuction of high school friends formed a band together.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "It was always your dream to follow in your big brother's footsteps and try to be an amazing musician.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "It must be hard to be a musician when you're in college and have crippling stage fright though.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "You like to call this… carrying his legacy. He taught you almost everything you know about music after all.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "You’re the drummer and backup vocalist for the band. You prefer to play guitar but Coal has you beat — and he’s the main vocalist.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "Arabelle plays violin, which is weird for a rock band, but the poor girl can’t play anything else. Sprout is on bass.",
           "chatbox": "Empty Chatbox",
-          "portrait": "None",
+          "portraits": ["None"],
           "choices": []
         }
       ]
@@ -361,66 +358,79 @@
       "name": "Scene 2 Part 2",
       "lines": [
         {
-          "text": "C’mon Xana, instruments don’t play themselves…unless ghosts can play them….do you think ghosts are real?",
+          "text": "C’mon Xana, instruments don’t play themselves…",
           "chatbox": "SPROUTChatbox",
-          "portrait": "SPROUTBasic",
+          "portraits": ["Sprout Deadpan", "Arabelle Default"],
+          "choices": []
+        },
+        {
+          "text": "…unless ghosts can play them….do you think ghosts are real?",
+          "chatbox": "SPROUTChatbox",
+          "portraits": ["Sprout Blank Open"],
           "choices": []
         },
         {
           "text": "Well…",
           "chatbox": "ARABELLEChatbox",
-          "portrait": "ARABELLEBasic",
+          "portraits": ["Arabelle Kind Open"],
           "choices": []
         },
         {
           "text": "GHOSTS ARE REAL?!!",
           "chatbox": "SPROUTChatbox",
-          "portrait": "SPROUTBasic",
+          "portraits": ["Sprout Fear Arms Up", "Arabelle Alarmed"],
           "choices": []
         },
         {
           "text": "I didn’t even get to say anything!",
           "chatbox": "ARABELLEChatbox",
-          "portrait": "ARABELLEBasic",
+          "portraits": ["Arabelle Fear Open"],
           "choices": []
         },
         {
           "text": "Let’s just go…wait where are the boys?",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "DEAD!",
           "chatbox": "SPROUTChatbox",
-          "portrait": "SPROUTBasic",
+          "portraits": ["Sprout Yell", "Arabelle Horrifed"],
           "choices": []
         },
         {
-          "text": "Sprout! Stop it!!…Vixen said he’s going to run a little late today, family issues",
+          "text": "Sprout! Stop it!!…",
           "chatbox": "ARABELLEChatbox",
-          "portrait": "ARABELLEBasic",
+          "portraits": ["Arabelle Horrifed"],
+          "choices": []
+        },
+        {
+          "text": "Vixen said he’s going to run a little late today, family issues",
+          "chatbox": "ARABELLEChatbox",
+          "portraits": ["Arabelle Kind Open"],
           "choices": []
         },
         {
           "text": "Family issues..?",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["None"],
           "choices": []
         },
         {
           "text": "B-But don’t worry! He said he’d 100% be there! And not to wait for him! Coal said he can’t make it though, bad migraine..",
           "chatbox": "ARABELLEChatbox",
-          "portrait": "ARABELLEBasic",
+          "portraits": ["Arabelle Kind Open", "Sprout Default"],
           "choices": []
         },
         {
           "text": "Ah, poor dude, I’ll have to check on him at some point…alright well let’s go then",
           "chatbox": "XANAChatbox",
-          "portrait": "XANABasic",
+          "portraits": ["None", "Arabelle Kind Smile", "Sprout Default"],
           "choices": []
         }
       ]
+<<<<<<< Updated upstream
     },
     {
       "name": "Scene 3",
@@ -1216,6 +1226,8 @@
           "choices": []
         }
       ]
+=======
+>>>>>>> Stashed changes
     }
   ]
 }

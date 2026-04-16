@@ -87,7 +87,7 @@ public class DialogueRegion : ScriptableObject, EventRegion
                 lines[i] = new DialogueManager.dialogueLine()
                 {
                     text = jl.text,
-                    portrait = LoadSprite(basePath, jl.portrait),
+                    portraits = LoadSprite(basePath, jl.portraits),
                     chatbox = LoadSprite(basePath, jl.chatbox),
                     choices = jl.choices ?? new DialogueManager.choice[0]
                 };
@@ -114,6 +114,19 @@ public class DialogueRegion : ScriptableObject, EventRegion
         return s;
     }
 
+    private Sprite[] LoadSprite(string basePath, string[] sprites)
+    {
+        Sprite[] spriteArr= new Sprite[sprites.Length];
+        int i = 0;
+        foreach (string spriteName in sprites)
+        {
+            spriteArr[i] = LoadSprite(basePath, spriteName);
+            i++;
+        }
+
+        return spriteArr;
+    }
+
     // ---------- JSON types ----------
     [Serializable] private class DialogueEventsJson { public DialogueEventJson[] events; }
     [Serializable] private class DialogueEventJson { public string name; public DialogueLineJson[] lines; }
@@ -121,7 +134,7 @@ public class DialogueRegion : ScriptableObject, EventRegion
     private class DialogueLineJson
     {
         public string text;
-        public string portrait;
+        public string[] portraits;
         public string chatbox;
         public DialogueManager.choice[] choices;
     }
