@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,9 +13,11 @@ public class ManualMovement : MonoBehaviour
     [SerializeField] float distance = 1;
     [SerializeField] float speed = 5;
     [SerializeField] Direction startingDirection;
+    [SerializeField] Vector2[] goalPoints;
 
     bool isMoving = false;
     Vector2 goalPos;
+    int curPoint = 0;
 
     Rigidbody2D rb;
 
@@ -85,8 +89,33 @@ public class ManualMovement : MonoBehaviour
         Vector2 dir_vec = directionToVector(direction);
         rb.linearVelocity = dir_vec * speed;
         isMoving = true;
-        goalPos = ((Vector2)transform.position) + dir_vec * distance;
 
+        
+            goalPos = ((Vector2)transform.position) + dir_vec * distance;
+
+    }
+
+    public void moveNextPoint()
+    {
+        if (isMoving)
+        {
+            Debug.LogWarning("Multiple movement instructions overlapping");
+            Debug.Log("cur movement instructions: \nGoal: " + goalPos + "\ncur: " + transform.position);
+            return;
+        }
+
+        if (curPoint >= goalPoints.Length)
+        {
+            Debug.LogError("ran out of points");
+            return;
+        }
+
+        goalPos = goalPoints[curPoint];
+        curPoint++;
+
+        Vector2 dir_vec = (goalPos - (Vector2)transform.position).normalized;
+        rb.linearVelocity = dir_vec * speed;
+        isMoving = true;
     }
 
     private void Update()
@@ -94,10 +123,12 @@ public class ManualMovement : MonoBehaviour
         if (isMoving)
         {
             // check if passed goal
-            Vector2 dif = goalPos - (Vector2)transform.position;
+            Vector2 dif = goalPos - (Vector2)transform.localPosition;
             if (dif.normalized == -rb.linearVelocity.normalized)
             {
-                transform.position = goalPos;
+                Debug.Log("g: " + goalPos);
+                transform.localPosition = goalPos;
+                Debug.Log(transform.localPosition);
                 rb.linearVelocity = Vector2.zero;
                 isMoving = false;
             }
@@ -116,7 +147,7 @@ public class ManualMovement : MonoBehaviour
         // temp testing
         if (Input.GetKeyDown(KeyCode.W))
         {
-            moveDirection(Direction.Up);
+            moveNextPoint();
         }
     }
 }

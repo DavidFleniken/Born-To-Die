@@ -47,7 +47,7 @@ public class SlidingBar : MonoBehaviour
             // check if hit target
             if (Mathf.Abs(indicatorRb.transform.position.x - target.transform.position.x) <= wiggleRoom)
             {
-                move.moveDirection(ManualMovement.Direction.Up);
+                move.moveNextPoint();
                 Vector2 newPos = target.transform.position;
                 newPos.x = Random.Range(boxLeftCord + 0.6f, boxRightCord - 0.6f);
                 target.transform.position = newPos;
