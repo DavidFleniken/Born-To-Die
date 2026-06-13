@@ -49,6 +49,10 @@ public class ManualMovement : MonoBehaviour
         }
     }
 
+    public bool checkIfMoving()
+    {
+        return isMoving;
+    }
     Vector2 directionToVector(Direction dir)
     {
         Vector2 retVec = Vector2.zero;

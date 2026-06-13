@@ -87,8 +87,8 @@ public class PlayerController : MonoBehaviour, IInteractor
 
     private void Update()
     {
-        Debug.Log("time: " + Time.timeScale);
-        Debug.Log("Move: " + curMode);
+        //Debug.Log("time: " + Time.timeScale);
+        //Debug.Log("Move: " + curMode);
 
         anim.SetFloat("X Velo", 0);
         anim.SetFloat("Y Velo", 0);

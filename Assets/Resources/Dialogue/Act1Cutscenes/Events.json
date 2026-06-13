@@ -1,0 +1,123 @@
+{
+  "events": [
+    {
+      "name": "Scene 1",
+      "lines": [
+        {
+          "text": "You don’t usually think about this while you’re just living life, but a lot changes when you grow up, things you grew up with silently disappear and you don’t even notice.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Clothes stop fitting, but you don’t even notice.",
+          "chatbox": "Empty Chatbox",
+          "portraits": ["Clothes don’t fit"],
+          "choices": []
+        },
+        {
+          "text": "Vegetables suddenly don’t seem like the worst thing in the world, but you don’t even notice.",
+          "chatbox": "Empty Chatbox",
+          "portraits": ["Young Xana Vegatables"],
+          "choices": []
+        },
+        {
+          "text": "People you knew as a kid that were older, grew up into adults way before you could, but you don’t even notice.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "People grow up, and they move on with their lives…but you don’t even notice.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": " Except I did notice, I noticed immediately, nobody else seemed to, but I did, and I stayed quiet…because everyone seems to be “used to life”, like they’ve had lives before this one, everything naturally flows into place, things just change and no one bats an eye.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Bringing up the change just interrupts the flow of it all, it makes people aware.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "And I learned…that people hate being aware.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I was silenced.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I’m forced to live with being aware and not being able to talk about it with anybody.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Everyone around me just wants to act like change isn’t there, it really changed my perspective on how nostalgia makes me feel.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "Nostalgia’s supposed to feel good, but everytime I get nostalgia I just get depressed.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I wish time would slow down.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "But it doesn’t matter how I feel, life keeps moving…with or without you…whether you’re ready or not, that’s just the sad truth.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "But I…",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "...",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I...",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        },
+        {
+          "text": "I chose my own change.",
+          "chatbox": "Empty Chatbox",
+          "portraits": [],
+          "choices": []
+        }
+      ]
+    }
+  ]
+}

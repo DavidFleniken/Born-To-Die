@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    [SerializeField] GameObject newBackground;
+    [SerializeField] public GameObject newBackground;
     [SerializeField] Vector3 spawnPos;
     enum direction { Up, Down, Left, Right }
     [SerializeField] direction spawnDir; // which direction to spawn looking towards

@@ -42,7 +42,7 @@ public class SlidingBar : MonoBehaviour
             indicatorRb.linearVelocity = speed * dir * Vector2.right;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !move.checkIfMoving())
         {
             // check if hit target
             if (Mathf.Abs(indicatorRb.transform.position.x - target.transform.position.x) <= wiggleRoom)
@@ -55,7 +55,7 @@ public class SlidingBar : MonoBehaviour
             else
             {
                 // Do game over stuff
-                Debug.Log("Game Over");
+                A1S7MinigameManager.onGameOver();
             }
                 // pause movement for a second
                 StartCoroutine(pauseMovement());
